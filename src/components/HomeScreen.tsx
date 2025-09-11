@@ -11,9 +11,16 @@ export default function HomeScreen() {
     <div className="screen-container">
       <div className="flex flex-col h-full bg-gray-50">
         <div className="flex-1 relative">
-          {/* Header */}
-          <div className="bg-white border-b border-gray-200 shadow-sm">
-            <div className="max-w-sm mx-auto px-4 py-3">
+          {/* Banner Image with Overlay Buttons */}
+          <div className="relative h-80">
+            <img 
+              src="/لون[1].pdf.png" 
+              alt="عروض الإطارات" 
+              className="w-full h-full object-cover"
+            />
+            
+            {/* Overlay Buttons */}
+            <div className="absolute top-4 left-0 right-0 px-4">
               <div className="flex items-center justify-between">
                 {/* Left - Empty space for balance */}
                 <div className="w-20"></div>
@@ -21,34 +28,25 @@ export default function HomeScreen() {
                 {/* Center - Location Dropdown */}
                 <button 
                   onClick={() => navigate('/location')}
-                  className="flex items-center gap-2 bg-white/20 backdrop-blur-md border border-white/30 px-4 py-2 rounded-xl shadow-lg hover:bg-white/30 transition-all duration-300"
+                  className="flex items-center gap-2 bg-black/20 backdrop-blur-sm px-4 py-2 rounded-xl hover:bg-black/30 transition-all duration-300"
                 >
-                  <MapPin size={16} className="text-gray-700" />
-                  <ChevronDown size={14} className="text-gray-600" />
+                  <MapPin size={16} className="text-white" />
+                  <ChevronDown size={14} className="text-white" />
                   <div className="text-right">
-                    <p className="text-xs font-almarai font-medium text-gray-800">hbh</p>
+                    <p className="text-sm font-almarai font-medium text-white">hbh</p>
                   </div>
                 </button>
 
-                {/* Right - Gifts Button with glassmorphism */}
+                {/* Right - Gifts Button */}
                 <button 
                   onClick={() => navigate('/gifts')}
-                  className="flex flex-col items-center gap-1 bg-white/20 backdrop-blur-md border border-white/30 px-3 py-2 rounded-xl shadow-lg hover:bg-white/30 transition-all duration-300"
+                  className="flex items-center gap-2 bg-black/20 backdrop-blur-sm px-3 py-2 rounded-xl hover:bg-black/30 transition-all duration-300"
                 >
-                  <Gift size={16} className="text-gray-700" />
-                  <span className="text-xs font-almarai font-medium text-gray-800">هدايا وعروض</span>
+                  <Gift size={16} className="text-white" />
+                  <span className="text-sm font-almarai font-medium text-white">هدايا وعروض</span>
                 </button>
               </div>
             </div>
-          </div>
-
-          {/* Banner Image */}
-          <div className="relative">
-            <img 
-              src="/لون[1].pdf.png" 
-              alt="عروض الإطارات" 
-              className="w-full h-48 object-cover"
-            />
           </div>
 
           {/* Content */}
