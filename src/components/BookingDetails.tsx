@@ -4,7 +4,10 @@ import { ArrowRight, MapPin, Plus, Navigation, Car } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 
 export default function BookingDetails() {
+  const { user } = useApp();
   const navigate = useNavigate();
+  const [selectedLocation, setSelectedLocation] = useState(user.currentAddress || 'اختر موقعك');
+  const [isLoadingLocation, setIsLoadingLocation] = useState(false);
 
   const getCurrentLocation = () => {
     setIsLoadingLocation(true);
