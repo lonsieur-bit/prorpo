@@ -13,13 +13,13 @@ export default function SplashScreen() {
   }, [navigate]);
 
   return (
-    <div className="screen-container">
-      <div className="flex items-center justify-center h-full bg-white">
+    <div className="screen-container bg-white">
+      <div className="flex items-center justify-center min-h-screen">
         <div className="animate-pulse">
           <img 
             src="/شعار نشمي.pdf (3).png" 
             alt="شعار نشمي" 
-            className="w-40 h-40 object-contain animate-bounce"
+            className="w-40 h-40 object-contain"
             style={{
               filter: 'drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1))',
               animation: 'logoFade 2s ease-in-out infinite alternate'
