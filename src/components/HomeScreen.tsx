@@ -22,9 +22,6 @@ export default function HomeScreen() {
             {/* Overlay Buttons */}
             <div className="absolute top-4 left-0 right-0 px-4">
               <div className="flex items-center justify-between px-6">
-                {/* Left - Empty space for balance */}
-                <div className="w-20"></div>
-              <div className="flex items-center justify-between">
                 {/* Left - Gifts Button */}
                 <button 
                   onClick={() => navigate('/gifts')}
@@ -45,8 +42,8 @@ export default function HomeScreen() {
                     <p className="text-sm font-almarai font-medium text-black">hbh</p>
                   </div>
                 </button>
-              </div>
             </div>
+          </div>
           </div>
 
           {/* Content */}
@@ -54,7 +51,7 @@ export default function HomeScreen() {
             {/* Offer Banner */}
             <div className="bg-gradient-to-r from-orange-400 to-red-500 rounded-xl p-4 text-white text-center shadow-lg">
               <p className="text-lg font-almarai font-bold mb-1">عرض خاص</p>
-              <p className="text-sm font-arabic-city">3 غسلات بسعر 399 ريال فقط</p>
+              <p className="text-sm font-almarai">3 غسلات بسعر 399 ريال فقط</p>
             </div>
 
             {/* Book Button */}
@@ -86,7 +83,7 @@ export default function HomeScreen() {
                     />
                   </div>
                   <h4 className="font-almarai font-bold text-gray-800 mb-1">غسيل سيارات 2</h4>
-                  <p className="text-xs font-arabic-city text-gray-600 mb-3">حالة جديدة</p>
+                  <p className="text-xs font-almarai text-gray-600 mb-3">حالة جديدة</p>
                 </div>
                 <button 
                   onClick={() => navigate('/booking')}
@@ -107,7 +104,7 @@ export default function HomeScreen() {
                     />
                   </div>
                   <h4 className="font-almarai font-bold text-gray-800 mb-1">غسيل سيارات</h4>
-                  <p className="text-xs font-arabic-city text-gray-600 mb-3">حالة جديدة</p>
+                  <p className="text-xs font-almarai text-gray-600 mb-3">حالة جديدة</p>
                 </div>
                 <button 
                   onClick={() => navigate('/booking')}
@@ -125,28 +122,28 @@ export default function HomeScreen() {
           <div className="flex justify-around">
             <button className="flex flex-col items-center gap-1">
               <Car size={20} className="text-blue-500" />
-              <span className="text-xs text-blue-500 font-medium">الرئيسية</span>
+              <span className="text-xs text-blue-500 font-almarai font-medium">الرئيسية</span>
             </button>
             <button 
               onClick={() => navigate('/orders')}
               className="flex flex-col items-center gap-1"
             >
               <ShoppingBag size={20} className="text-gray-400" />
-              <span className="text-xs text-gray-400">طلباتي</span>
+              <span className="text-xs text-gray-400 font-almarai">طلباتي</span>
             </button>
             <button 
               onClick={() => navigate('/gifts')}
               className="flex flex-col items-center gap-1"
             >
               <Gift size={20} className="text-gray-400" />
-              <span className="text-xs text-gray-400">هدايا</span>
+              <span className="text-xs text-gray-400 font-almarai">هدايا</span>
             </button>
             <button 
               onClick={() => navigate('/profile')}
               className="flex flex-col items-center gap-1"
             >
               <User size={20} className="text-gray-400" />
-              <span className="text-xs text-gray-400">حسابي</span>
+              <span className="text-xs text-gray-400 font-almarai">حسابي</span>
             </button>
           </div>
         </div>
