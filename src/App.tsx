@@ -11,6 +11,7 @@ import AddressConfirmation from './components/AddressConfirmation';
 import PaymentMethod from './components/PaymentMethod';
 import OrderTracking from './components/OrderTracking';
 import UserProfile from './components/UserProfile';
+import LocationManager from './components/LocationManager';
 import { AppProvider } from './context/AppContext';
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
             <Route path="/payment" element={<PaymentMethod />} />
             <Route path="/tracking" element={<OrderTracking />} />
             <Route path="/profile" element={<UserProfile />} />
+            <Route path="/location" element={<LocationManager />} />
           </Routes>
         </div>
       </Router>

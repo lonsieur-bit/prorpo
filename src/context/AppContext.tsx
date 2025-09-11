@@ -5,6 +5,7 @@ interface AppContextType {
     name: string;
     phone: string;
     email: string;
+    currentAddress?: string;
   };
   booking: {
     location: string;

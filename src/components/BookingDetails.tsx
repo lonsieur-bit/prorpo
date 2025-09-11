@@ -70,13 +70,14 @@ export default function BookingDetails() {
           <div className="mb-6">
             <label className="block text-sm font-medium text-gray-700 mb-2">الموقع</label>
             <div className="relative">
-              <input
+              <button
                 type="text"
-                value={selectedLocation}
-                onChange={(e) => setSelectedLocation(e.target.value)}
-                className="input-field pl-10"
+                onClick={() => navigate('/location')}
+                className="input-field pl-10 text-right w-full bg-gray-50 hover:bg-gray-100 transition-colors"
                 placeholder="اختر موقعك"
-              />
+              >
+                {selectedLocation}
+              </button>
               <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
               <button
                 type="button"

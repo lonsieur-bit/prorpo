@@ -24,10 +24,13 @@ export default function HomeScreen() {
             </div>
             <div className="flex items-center gap-2">
               <MapPin size={16} className="text-gray-600" />
-              <div className="text-right">
+              <button 
+                onClick={() => navigate('/location')}
+                className="text-right hover:text-primary-600 transition-colors"
+              >
                 <p className="text-sm font-medium text-gray-800">الموقع</p>
-                <p className="text-xs text-gray-500">الرياض، ح. شارع 4231</p>
-              </div>
+                <p className="text-xs text-gray-500">{user.currentAddress || 'الرياض، ح. شارع 4231'}</p>
+              </button>
             </div>
           </div>
         </div>

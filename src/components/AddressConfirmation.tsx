@@ -80,10 +80,13 @@ export default function AddressConfirmation() {
             <div className="bg-white rounded-lg border border-gray-200 p-4 mb-6">
               <div className="flex items-center gap-3 mb-3">
                 <MapPin size={20} className="text-primary-600" />
-                <div className="flex-1">
+                <button 
+                  onClick={() => navigate('/location')}
+                  className="flex-1 text-right hover:text-primary-600 transition-colors"
+                >
                   <p className="font-medium text-gray-800">الموقع الحالي</p>
                   <p className="text-sm text-gray-600">{currentLocation}</p>
-                </div>
+                </button>
                 <button
                   onClick={getCurrentLocation}
                   disabled={isLoadingLocation}
