@@ -11,16 +11,9 @@ export default function HomeScreen() {
     <div className="screen-container">
       <div className="flex flex-col h-full bg-gray-50">
         <div className="flex-1 relative">
-          {/* Banner Image with Overlay Header */}
-          <div className="relative">
-            <img 
-              src="/لون[1].pdf.png" 
-              alt="عروض الإطارات" 
-              className="w-full h-64 object-cover"
-            />
-            
-            {/* Transparent Header Overlay */}
-            <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-black/30 via-black/10 to-transparent p-4 pt-12">
+          {/* Fixed Header */}
+          <div className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200/50 shadow-sm">
+            <div className="max-w-sm mx-auto px-4 py-3">
               <div className="flex items-center justify-between">
                 {/* Empty space for balance */}
                 <div className="w-16"></div>
@@ -28,20 +21,20 @@ export default function HomeScreen() {
                 {/* Location Dropdown */}
                 <button 
                   onClick={() => navigate('/location')}
-                  className="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-3 rounded-xl shadow-lg hover:bg-white transition-all"
+                  className="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-xl shadow-md hover:bg-white transition-all border border-gray-200/50"
                 >
                   <ChevronDown size={16} className="text-primary-600" />
                   <div className="text-right">
                     <p className="text-sm font-almarai font-bold text-gray-800">الموقع</p>
                     <p className="text-xs font-arabic-city text-gray-600">{user.currentAddress || 'الرياض، ح. شارع 4231'}</p>
                   </div>
-                  <MapPin size={20} className="text-primary-600" />
+                  <MapPin size={18} className="text-primary-600" />
                 </button>
 
                 {/* Gifts Button */}
                 <button 
                   onClick={() => navigate('/gifts')}
-                  className="flex flex-col items-center gap-1 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-xl shadow-lg hover:bg-white transition-all"
+                  className="flex flex-col items-center gap-1 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-xl shadow-md hover:bg-white transition-all border border-gray-200/50"
                 >
                   <div className="w-8 h-8 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full flex items-center justify-center">
                     <Gift size={16} className="text-white" />
@@ -50,6 +43,15 @@ export default function HomeScreen() {
                 </button>
               </div>
             </div>
+          </div>
+
+          {/* Banner Image */}
+          <div className="relative mt-16">
+            <img 
+              src="/لون[1].pdf.png" 
+              alt="عروض الإطارات" 
+              className="w-full h-64 object-cover"
+            />
           </div>
 
           {/* Content */}
@@ -91,7 +93,10 @@ export default function HomeScreen() {
                   <h4 className="font-almarai font-bold text-gray-800 mb-1">غسيل سيارات 2</h4>
                   <p className="text-xs font-arabic-city text-gray-600 mb-3">حالة جديدة</p>
                 </div>
-                <button className="w-full bg-gradient-to-r from-primary-600 to-secondary-500 text-white text-sm py-2 rounded-lg">
+                <button 
+                  onClick={() => navigate('/booking')}
+                  className="w-full bg-gradient-to-r from-primary-600 to-secondary-500 text-white text-sm py-2 rounded-lg hover:from-primary-700 hover:to-secondary-600 transition-all"
+                >
                   تفاصيل
                 </button>
               </div>
@@ -109,7 +114,10 @@ export default function HomeScreen() {
                   <h4 className="font-almarai font-bold text-gray-800 mb-1">غسيل سيارات</h4>
                   <p className="text-xs font-arabic-city text-gray-600 mb-3">حالة جديدة</p>
                 </div>
-                <button className="w-full bg-gradient-to-r from-primary-600 to-secondary-500 text-white text-sm py-2 rounded-lg">
+                <button 
+                  onClick={() => navigate('/booking')}
+                  className="w-full bg-gradient-to-r from-primary-600 to-secondary-500 text-white text-sm py-2 rounded-lg hover:from-primary-700 hover:to-secondary-600 transition-all"
+                >
                   تفاصيل
                 </button>
               </div>
