@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowRight, MapPin, Plus, Navigation } from 'lucide-react';
+import { ArrowRight, MapPin, Plus, Navigation, Car } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 
 export default function BookingDetails() {
