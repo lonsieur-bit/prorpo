@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowRight, User, Phone, Mail, Settings, HelpCircle } from 'lucide-react';
+import { ArrowRight, User, Phone, Mail, Settings, HelpCircle, Gift, ShoppingBag } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 
 export default function UserProfile() {
@@ -8,10 +8,11 @@ export default function UserProfile() {
   const { user } = useApp();
 
   const menuItems = [
-    { icon: Phone, label: 'طلباتي', color: 'text-pink-600' },
-    { icon: Settings, label: 'معلومات حسابي', color: 'text-gray-600' },
-    { icon: HelpCircle, label: 'الدعم الفني المساعد', color: 'text-blue-600' },
-    { icon: Settings, label: 'الإعدادات والإشعارات', color: 'text-gray-600' }
+    { icon: ShoppingBag, label: 'طلباتي', color: 'text-pink-600', route: '/orders' },
+    { icon: User, label: 'معلومات حسابي', color: 'text-gray-600', route: '/account-info' },
+    { icon: Gift, label: 'هدايا وعروض', color: 'text-orange-600', route: '/gifts' },
+    { icon: HelpCircle, label: 'الدعم الفني المساعد', color: 'text-blue-600', route: '/support' },
+    { icon: Settings, label: 'الإعدادات والإشعارات', color: 'text-gray-600', route: '/settings' }
   ];
 
   return (
@@ -28,7 +29,7 @@ export default function UserProfile() {
             </div>
             <div>
               <h1 className="text-xl font-almarai font-bold">{user.name}</h1>
-              <p className="text-white/80">{user.phone}</p>
+              <p className="text-white/80 font-arabic-city">{user.phone}</p>
             </div>
           </div>
         </div>
@@ -38,37 +39,26 @@ export default function UserProfile() {
             {menuItems.map((item, index) => (
               <button
                 key={index}
+                onClick={() => navigate(item.route)}
                 className="w-full flex items-center gap-4 p-4 bg-white rounded-lg hover:bg-gray-50 transition-colors"
               >
                 <item.icon size={20} className={item.color} />
-                <span className="flex-1 text-right text-gray-700">{item.label}</span>
+                <span className="flex-1 text-right text-gray-700 font-arabic-city">{item.label}</span>
                 <ArrowRight size={16} className="text-gray-400 rotate-180" />
               </button>
             ))}
           </div>
 
           <div className="mt-8 bg-gray-50 rounded-lg p-4">
-            <h2 className="text-lg font-almarai font-bold text-gray-800 mb-4">الدعم والمساعدة</h2>
+            <h2 className="text-lg font-almarai font-bold text-gray-800 mb-4">معلومات التواصل</h2>
             
             <div className="bg-primary-100 rounded-lg p-4 mb-4">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-primary-800 font-medium">الدعم الفني</span>
+                <span className="text-primary-800 font-almarai font-medium">الدعم الفني</span>
                 <Phone size={16} className="text-primary-600" />
               </div>
-              <p className="text-primary-700 text-sm">{user.email}</p>
-              <p className="text-primary-600 text-xs">{user.phone}</p>
-            </div>
-
-            <div className="flex gap-4">
-              <button className="flex-1 bg-primary-600 text-white p-3 rounded-lg text-sm">
-                اتصال
-              </button>
-              <button className="flex-1 bg-secondary-600 text-white p-3 rounded-lg text-sm">
-                WhatsApp
-              </button>
-              <button className="flex-1 bg-green-600 text-white p-3 rounded-lg text-sm">
-                Telegram
-              </button>
+              <p className="text-primary-700 text-sm font-arabic-city">{user.email}</p>
+              <p className="text-primary-600 text-xs font-arabic-city">{user.phone}</p>
             </div>
           </div>
         </div>

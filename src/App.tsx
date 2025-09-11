@@ -17,6 +17,9 @@ import CarSelection from './components/CarSelection';
 import GiftsPage from './components/GiftsPage';
 import OrdersPage from './components/OrdersPage';
 import ServiceRating from './components/ServiceRating';
+import AccountInfo from './components/AccountInfo';
+import SupportPage from './components/SupportPage';
+import SettingsPage from './components/SettingsPage';
 import { AppProvider } from './context/AppContext';
 
 function App() {
@@ -42,6 +45,9 @@ function App() {
             <Route path="/gifts" element={<GiftsPage />} />
             <Route path="/orders" element={<OrdersPage />} />
             <Route path="/rating" element={<ServiceRating />} />
+            <Route path="/account-info" element={<AccountInfo />} />
+            <Route path="/support" element={<SupportPage />} />
+            <Route path="/settings" element={<SettingsPage />} />
           </Routes>
         </div>
       </Router>
