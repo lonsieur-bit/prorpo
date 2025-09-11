@@ -7,10 +7,7 @@ export default function BookingDetails() {
   const navigate = useNavigate();
   const { user } = useApp();
   const [selectedLocation, setSelectedLocation] = useState('الرياض، حي شبرا 4231');
-  const [selectedColors, setSelectedColors] = useState([0, 1, 2]);
   const [isLoadingLocation, setIsLoadingLocation] = useState(false);
-
-  const colors = ['#1E40AF', '#0891B2', '#059669', '#DC2626', '#7C2D12', '#4338CA', '#0D9488', '#15803D'];
 
   const getCurrentLocation = () => {
     setIsLoadingLocation(true);
