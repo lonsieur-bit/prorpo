@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowRight, CreditCard, Plus, Calendar, MapPin, Car, Clock } from 'lucide-react';
+import { ArrowRight, CreditCard, Plus, Calendar, MapPin, Car, Clock, Star } from 'lucide-react';
 
 export default function PaymentMethod() {
   const navigate = useNavigate();
