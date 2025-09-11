@@ -24,7 +24,7 @@ const AppContext = createContext<AppContextType | undefined>(undefined);
 export function AppProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState({
     name: 'أحمد العربي',
-    phone: '+966548995492',
+    phone: '+966508370594',
     email: 'info@support.com'
   });
 

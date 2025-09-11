@@ -5,7 +5,7 @@ import ProgressBar from './ProgressBar';
 
 export default function PhoneVerification() {
   const navigate = useNavigate();
-  const [phoneNumber, setPhoneNumber] = useState('+966548995492');
+  const [phoneNumber, setPhoneNumber] = useState('+966508370594');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -65,12 +65,12 @@ export default function PhoneVerification() {
                   value={phoneNumber}
                   onChange={(e) => setPhoneNumber(e.target.value)}
                   className="w-full p-4 border-2 border-gray-200 rounded-xl text-lg text-right bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 focus:bg-white transition-all"
-                  placeholder="+966548995492"
+                  placeholder="+966508370594"
                   dir="ltr"
                 />
                 <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
-                  <div className="w-6 h-4 bg-green-500 rounded-sm flex items-center justify-center">
-                    <span className="text-white text-xs font-bold">🇸🇦</span>
+                  <div className="w-6 h-4 rounded-sm flex items-center justify-center">
+                    <span className="text-xs">🇸🇦</span>
                   </div>
                 </div>
               </div>

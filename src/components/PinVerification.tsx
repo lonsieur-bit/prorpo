@@ -75,7 +75,7 @@ export default function PinVerification() {
                 <Shield size={32} className="text-white" />
               </div>
               <h1 className="text-2xl font-almarai font-bold mb-2">رمز التحقق</h1>
-              <p className="text-white/90 font-arabic-city text-sm">أدخل الرمز المرسل إلى +966548995492</p>
+              <p className="text-white/90 font-arabic-city text-sm">أدخل الرمز المرسل إلى +966508370594</p>
             </div>
           </div>
           
