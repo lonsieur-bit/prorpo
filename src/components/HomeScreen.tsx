@@ -13,10 +13,8 @@ export default function HomeScreen() {
         {/* Header */}
         <div className="bg-white p-4 shadow-sm">
           <div className="flex items-center justify-between">
-            {/* Menu Button */}
-            <button className="p-2 bg-gray-100 rounded-lg">
-              <Menu size={20} className="text-gray-600" />
-            </button>
+            {/* Empty space for balance */}
+            <div className="w-10"></div>
 
             {/* Location Dropdown */}
             <button 
@@ -31,14 +29,15 @@ export default function HomeScreen() {
               <MapPin size={18} className="text-gray-600" />
             </button>
 
-            {/* Notification/Profile Button */}
+            {/* Gifts Button */}
             <button 
-              onClick={() => navigate('/profile')}
-              className="p-2 bg-gray-100 rounded-lg"
+              onClick={() => navigate('/gifts')}
+              className="flex flex-col items-center gap-1"
             >
-              <div className="w-6 h-6 bg-primary-600 rounded-full flex items-center justify-center">
-                <User size={14} className="text-white" />
+              <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
+                <Gift size={16} className="text-orange-600" />
               </div>
+              <span className="text-xs font-arabic-city text-gray-600">هدايا وعروض</span>
             </button>
           </div>
         </div>
