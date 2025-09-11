@@ -9,10 +9,10 @@ export default function UserProfile() {
   const { user } = useApp();
 
   const menuItems = [
-    { icon: Phone, label: 'طلبان', color: 'text-pink-600' },
+    { icon: Phone, label: 'طلباتي', color: 'text-pink-600' },
     { icon: Settings, label: 'معلومات حسابي', color: 'text-gray-600' },
     { icon: HelpCircle, label: 'الدعم الفني المساعد', color: 'text-blue-600' },
-    { icon: Settings, label: 'اعدادات وإشعارات', color: 'text-gray-600' }
+    { icon: Settings, label: 'الإعدادات والإشعارات', color: 'text-gray-600' }
   ];
 
   return (
@@ -50,7 +50,7 @@ export default function UserProfile() {
           </div>
 
           <div className="mt-8 bg-gray-50 rounded-lg p-4">
-            <h2 className="text-lg font-bold text-gray-800 mb-4">التعليقات والتعليقات</h2>
+            <h2 className="text-lg font-bold text-gray-800 mb-4">الدعم والمساعدة</h2>
             
             <div className="bg-primary-100 rounded-lg p-4 mb-4">
               <div className="flex items-center justify-between mb-2">
@@ -58,7 +58,7 @@ export default function UserProfile() {
                 <Phone size={16} className="text-primary-600" />
               </div>
               <p className="text-primary-700 text-sm">{user.email}</p>
-              <p className="text-primary-600 text-xs">+964</p>
+              <p className="text-primary-600 text-xs">{user.phone}</p>
             </div>
 
             <div className="flex gap-4">

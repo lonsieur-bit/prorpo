@@ -36,7 +36,7 @@ export default function OrderTracking() {
           <div className="px-6">
             <div className="card mb-6">
               <div className="flex items-center justify-between mb-4">
-                <h2 className="text-lg font-bold text-gray-800">دارق التوصيل</h2>
+                <h2 className="text-lg font-bold text-gray-800">سائق التوصيل</h2>
                 <div className="flex items-center gap-1">
                   {[1,2,3,4,5].map((star) => (
                     <Star key={star} size={16} className="fill-yellow-400 text-yellow-400" />
@@ -60,7 +60,7 @@ export default function OrderTracking() {
             </div>
 
             <div className="card mb-6">
-              <h2 className="text-lg font-bold text-gray-800 mb-4">تفصير المطلوب</h2>
+              <h2 className="text-lg font-bold text-gray-800 mb-4">تفاصيل الطلب</h2>
               
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
@@ -100,31 +100,31 @@ export default function OrderTracking() {
                   <span className="font-medium">92587879</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">خدمة 2</span>
-                  <span className="font-medium">داير التوصيل</span>
+                  <span className="text-gray-600">نوع الخدمة</span>
+                  <span className="font-medium">غسيل السيارة</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">في الطريق إليك</span>
+                  <span className="text-gray-600">حالة الطلب</span>
                   <div className="bg-primary-100 px-2 py-1 rounded text-xs text-primary-700">
-                    وقت التوصيل
+                    في الطريق إليك
                   </div>
                 </div>
                 <hr className="border-gray-200" />
                 <div className="flex justify-between">
-                  <span className="text-gray-600">من طلب العربي إلى سدال</span>
+                  <span className="text-gray-600">وقت الوصول المتوقع</span>
                   <div className="bg-gray-100 px-2 py-1 rounded text-xs">
-                    Delivery
+                    15 دقيقة
                   </div>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">في الطریق اليك</span>
+                  <span className="text-gray-600">المسافة</span>
                   <div className="bg-gray-100 px-2 py-1 rounded text-xs">
-                    On Your Delivery
+                    2.5 كم
                   </div>
                 </div>
                 
                 <div className="flex justify-between text-lg font-bold text-primary-600 pt-2">
-                  <span>تم الاستلام</span>
+                  <span>إجمالي المبلغ: 399 ريال</span>
                 </div>
               </div>
             </div>

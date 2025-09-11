@@ -43,7 +43,7 @@ export default function DateTimeSelection() {
               <h2 className="text-lg font-bold text-gray-800">التاريخ</h2>
               <div className="flex items-center gap-2">
                 <ChevronRight size={20} className="text-gray-400" />
-                <span className="text-sm text-gray-600">20 مارس</span>
+                <span className="text-sm text-gray-600">مارس 2024</span>
                 <ChevronLeft size={20} className="text-gray-400" />
               </div>
             </div>

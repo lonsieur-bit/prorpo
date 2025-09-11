@@ -1,14 +1,56 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowRight, MapPin, Plus } from 'lucide-react';
+import { ArrowRight, MapPin, Plus, Navigation } from 'lucide-react';
 import StatusBar from './StatusBar';
 
 export default function BookingDetails() {
   const navigate = useNavigate();
   const [selectedLocation, setSelectedLocation] = useState('الرياض، حي شبرا 4231');
   const [selectedColors, setSelectedColors] = useState([0, 1, 2]);
+  const [isLoadingLocation, setIsLoadingLocation] = useState(false);
 
   const colors = ['#1E40AF', '#0891B2', '#059669', '#DC2626', '#7C2D12', '#4338CA', '#0D9488', '#15803D'];
+
+  const getCurrentLocation = () => {
+    setIsLoadingLocation(true);
+    
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          const { latitude, longitude } = position.coords;
+          
+          try {
+            // Using a reverse geocoding service to get address
+            const response = await fetch(
+              `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=ar`
+            );
+            const data = await response.json();
+            
+            const address = data.locality || data.city || data.principalSubdivision || 'موقع غير محدد';
+            setSelectedLocation(`${address}, ${data.countryName || 'السعودية'}`);
+          } catch (error) {
+            console.error('Error getting address:', error);
+            setSelectedLocation(`الموقع الحالي: ${latitude.toFixed(4)}, ${longitude.toFixed(4)}`);
+          }
+          
+          setIsLoadingLocation(false);
+        },
+        (error) => {
+          console.error('Error getting location:', error);
+          alert('لا يمكن الحصول على موقعك الحالي. يرجى التأكد من تفعيل خدمة الموقع.');
+          setIsLoadingLocation(false);
+        },
+        {
+          enableHighAccuracy: true,
+          timeout: 10000,
+          maximumAge: 60000
+        }
+      );
+    } else {
+      alert('متصفحك لا يدعم خدمة تحديد الموقع');
+      setIsLoadingLocation(false);
+    }
+  };
 
   const handleSubmit = () => {
     navigate('/datetime');
@@ -38,7 +80,17 @@ export default function BookingDetails() {
                 placeholder="اختر موقعك"
               />
               <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+              <button
+                type="button"
+                onClick={getCurrentLocation}
+                disabled={isLoadingLocation}
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-primary-600 hover:text-primary-700 disabled:opacity-50"
+                title="استخدام الموقع الحالي"
+              >
+                <Navigation size={20} className={isLoadingLocation ? 'animate-spin' : ''} />
+              </button>
             </div>
+            <p className="text-xs text-gray-500 mt-1">انقر على أيقونة التنقل لاستخدام موقعك الحالي</p>
           </div>
 
           <div className="mb-6">

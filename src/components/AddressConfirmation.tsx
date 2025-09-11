@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowRight, MapPin, Edit3 } from 'lucide-react';
+import { ArrowRight, MapPin, Edit3, Navigation } from 'lucide-react';
 import StatusBar from './StatusBar';
 
 export default function AddressConfirmation() {
   const navigate = useNavigate();
   const [selectedAddress, setSelectedAddress] = useState('الموقع الرئيسي');
+  const [currentLocation, setCurrentLocation] = useState('الرياض، حي شبرا 4231');
+  const [isLoadingLocation, setIsLoadingLocation] = useState(false);
 
   const addresses = [
     { id: 1, name: 'الموقع الرئيسي', address: 'الرياض، حي شبرا 4231', distance: '1 كيلومتر' },
@@ -13,6 +15,41 @@ export default function AddressConfirmation() {
     { id: 3, name: 'خدمات متنوعة', address: 'الرياض، حي شبرا 4231', distance: '1 خدمة' },
     { id: 4, name: 'تجارة المتطلبات', address: 'الرياض، حي شبرا 4231', distance: '2 خدمة' }
   ];
+
+  const getCurrentLocation = () => {
+    setIsLoadingLocation(true);
+    
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          const { latitude, longitude } = position.coords;
+          
+          try {
+            const response = await fetch(
+              `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=ar`
+            );
+            const data = await response.json();
+            
+            const address = data.locality || data.city || data.principalSubdivision || 'موقع غير محدد';
+            setCurrentLocation(`${address}, ${data.countryName || 'السعودية'}`);
+          } catch (error) {
+            console.error('Error getting address:', error);
+            setCurrentLocation(`الموقع الحالي: ${latitude.toFixed(4)}, ${longitude.toFixed(4)}`);
+          }
+          
+          setIsLoadingLocation(false);
+        },
+        (error) => {
+          console.error('Error getting location:', error);
+          alert('لا يمكن الحصول على موقعك الحالي. يرجى التأكد من تفعيل خدمة الموقع.');
+          setIsLoadingLocation(false);
+        }
+      );
+    } else {
+      alert('متصفحك لا يدعم خدمة تحديد الموقع');
+      setIsLoadingLocation(false);
+    }
+  };
 
   const handleSubmit = () => {
     navigate('/payment');
@@ -46,13 +83,21 @@ export default function AddressConfirmation() {
               <div className="flex items-center gap-3 mb-3">
                 <MapPin size={20} className="text-primary-600" />
                 <div className="flex-1">
-                  <p className="font-medium text-gray-800">4231</p>
-                  <p className="text-sm text-gray-600">الرياض، حي شبرا</p>
+                  <p className="font-medium text-gray-800">الموقع الحالي</p>
+                  <p className="text-sm text-gray-600">{currentLocation}</p>
                 </div>
+                <button
+                  onClick={getCurrentLocation}
+                  disabled={isLoadingLocation}
+                  className="text-primary-600 hover:text-primary-700 disabled:opacity-50"
+                  title="تحديث الموقع"
+                >
+                  <Navigation size={20} className={isLoadingLocation ? 'animate-spin' : ''} />
+                </button>
               </div>
               <div className="text-xs text-gray-500">
-                <p>29 December 2023</p>
-                <p>10:06 AM</p>
+                <p>{new Date().toLocaleDateString('ar-SA')}</p>
+                <p>{new Date().toLocaleTimeString('ar-SA', { hour: '2-digit', minute: '2-digit' })}</p>
               </div>
             </div>
 

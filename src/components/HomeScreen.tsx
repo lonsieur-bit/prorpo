@@ -107,22 +107,22 @@ export default function HomeScreen() {
           <div className="flex justify-around">
             <button className="flex flex-col items-center gap-1">
               <Car size={20} className="text-primary-600" />
-              <span className="text-xs text-primary-600">حساب المحجوز</span>
+              <span className="text-xs text-primary-600">الرئيسية</span>
             </button>
             <button className="flex flex-col items-center gap-1">
               <Calendar size={20} className="text-gray-400" />
-              <span className="text-xs text-gray-400">هيدا</span>
+              <span className="text-xs text-gray-400">طلباتي</span>
             </button>
             <button className="flex flex-col items-center gap-1">
-              <User size={20} className="text-gray-400" />
-              <span className="text-xs text-gray-400">طيبان</span>
+              <Sparkles size={20} className="text-gray-400" />
+              <span className="text-xs text-gray-400">هدايا</span>
             </button>
             <button 
               onClick={() => navigate('/profile')}
               className="flex flex-col items-center gap-1"
             >
               <User size={20} className="text-gray-400" />
-              <span className="text-xs text-gray-400">ارشيفي</span>
+              <span className="text-xs text-gray-400">حسابي</span>
             </button>
           </div>
         </div>
