@@ -18,7 +18,7 @@ export default function DateTimeSelection() {
     [26, 27, 28, 29, 30, 31, null]
   ];
 
-  const weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const weekDays = ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
 
   const handleSubmit = () => {
     navigate('/address');
@@ -120,43 +120,81 @@ export default function DateTimeSelection() {
 
           <div className="mb-6">
             <h2 className="text-lg font-bold text-gray-800 mb-4">الخدمات الإضافية</h2>
-            <div className="space-y-3">
-              <div className="bg-primary-100 p-4 rounded-lg">
-                <div className="flex items-center justify-between">
-                  <span className="text-primary-800 font-medium">+ موافق</span>
-                  <button className="bg-primary-600 text-white px-3 py-1 rounded text-sm">
-                    إضافة
-                  </button>
+            <div className="grid grid-cols-2 gap-3">
+              {/* Service 1 - Cleaning (Bucket) */}
+              <div className="bg-white border border-gray-200 rounded-xl p-4 text-center">
+                <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <div className="w-6 h-6 bg-primary-600 rounded-sm"></div>
                 </div>
+                <h3 className="font-medium text-gray-800 mb-1">تنظيف (شامل)</h3>
+                <p className="text-xs text-gray-500 mb-3">25 ر.س</p>
+                <button className="w-full bg-primary-600 text-white py-2 px-3 rounded-lg text-sm hover:bg-primary-700 transition-colors">
+                  متاحة
+                </button>
               </div>
-              <div className="bg-secondary-100 p-4 rounded-lg">
-                <div className="flex items-center justify-between">
-                  <span className="text-secondary-800 font-medium">+ موافق</span>
-                  <button className="bg-secondary-600 text-white px-3 py-1 rounded text-sm">
-                    إضافة
-                  </button>
+
+              {/* Service 2 - Wax (Bottle) */}
+              <div className="bg-white border border-gray-200 rounded-xl p-4 text-center">
+                <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <div className="w-4 h-6 bg-orange-500 rounded-sm"></div>
                 </div>
+                <h3 className="font-medium text-gray-800 mb-1">شمع</h3>
+                <p className="text-xs text-gray-500 mb-3">15 ر.س</p>
+                <button className="w-full bg-orange-500 text-white py-2 px-3 rounded-lg text-sm hover:bg-orange-600 transition-colors">
+                  متاحة
+                </button>
               </div>
-              <div className="bg-green-100 p-4 rounded-lg">
-                <div className="flex items-center justify-between">
-                  <span className="text-green-800 font-medium">+ موافق</span>
-                  <button className="bg-green-600 text-white px-3 py-1 rounded text-sm">
-                    إضافة
-                  </button>
+
+              {/* Service 3 - Interior Cleaning */}
+              <div className="bg-white border border-gray-200 rounded-xl p-4 text-center">
+                <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <div className="w-6 h-4 bg-gray-600 rounded-sm"></div>
                 </div>
+                <h3 className="font-medium text-gray-800 mb-1">تنظيف داخلي</h3>
+                <p className="text-xs text-gray-500 mb-3">30 ر.س</p>
+                <button className="w-full bg-gray-600 text-white py-2 px-3 rounded-lg text-sm hover:bg-gray-700 transition-colors">
+                  متاحة
+                </button>
+              </div>
+
+              {/* Service 4 - Polish */}
+              <div className="bg-white border border-gray-200 rounded-xl p-4 text-center">
+                <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <div className="w-4 h-6 bg-orange-500 rounded-sm"></div>
+                </div>
+                <h3 className="font-medium text-gray-800 mb-1">ملمع</h3>
+                <p className="text-xs text-gray-500 mb-3">20 ر.س</p>
+                <button className="w-full bg-orange-500 text-white py-2 px-3 rounded-lg text-sm hover:bg-orange-600 transition-colors">
+                  متاحة
+                </button>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="p-6 border-t border-gray-200">
-          <div className="flex items-center justify-between mb-4">
-            <span className="text-lg font-bold text-gray-800">إجمالي الطلب</span>
-            <span className="text-xl font-bold text-primary-600">700 ريال</span>
+        {/* Total Order Section - Updated Design */}
+        <div className="bg-primary-600 text-white p-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="bg-white/20 p-2 rounded-lg">
+                <img 
+                  src="/شعار نشمي.pdf (3).png" 
+                  alt="شعار نشمي" 
+                  className="w-6 h-6 object-contain filter brightness-0 invert"
+                />
+              </div>
+              <div>
+                <p className="text-sm opacity-90">إجمالي المبلغ</p>
+                <p className="text-2xl font-bold">74.44 ر.س</p>
+              </div>
+            </div>
+            <button 
+              onClick={handleSubmit}
+              className="bg-white text-primary-600 font-medium py-3 px-6 rounded-lg hover:bg-gray-100 transition-colors"
+            >
+              متابعة
+            </button>
           </div>
-          <button onClick={handleSubmit} className="btn-primary">
-            تأكيد
-          </button>
         </div>
       </div>
     </div>
