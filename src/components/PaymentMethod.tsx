@@ -5,7 +5,7 @@ import { ArrowRight, CreditCard, Plus, Calendar, MapPin, Car, Clock, Star, X } f
 export default function PaymentMethod() {
   const navigate = useNavigate();
   const [selectedPayment, setSelectedPayment] = useState('card1');
-  const [selectedNote, setSelectedNote] = useState('excellent');
+  const [selectedNote, setSelectedNote] = useState('complete');
   const [showPromoPopup, setShowPromoPopup] = useState(false);
   const [promoCode, setPromoCode] = useState('');
   const [appliedPromoCode, setAppliedPromoCode] = useState('');
@@ -98,52 +98,54 @@ export default function PaymentMethod() {
 
           {/* Orders Note - Delivery Options */}
           <div className="p-4 mx-4 mt-4">
-            <h3 className="text-lg font-almarai font-bold text-gray-800 mb-4 text-right">ملاحظات للبايكر</h3>
+            <h3 className="text-lg font-almarai font-bold text-gray-800 mb-4 text-right">ملاحظات للطلبات</h3>
             
             <div className="grid grid-cols-3 gap-3 mb-4">
               {/* Home Delivery */}
               <button 
-                onClick={() => setSelectedNote('fast')}
+                onClick={() => setSelectedNote('internal')}
                 className={`rounded-xl p-3 text-center border-2 transition-all ${
-                  selectedNote === 'fast' 
+                  selectedNote === 'internal' 
                     ? 'bg-primary-50 border-primary-400' 
                     : 'bg-gray-50 border-gray-200 hover:border-primary-300'
                 }`}
               >
                 <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                  <Clock size={20} className="text-primary-600" />
+                  <Car size={20} className="text-primary-600" />
                 </div>
-                <p className="text-xs font-almarai text-primary-700">سريع</p>
+                <p className="text-xs font-almarai text-primary-700">غسيل داخلي</p>
+                <p className="text-xs font-almarai text-primary-700">فقط</p>
               </button>
 
               {/* External Wash */}
               <button 
-                onClick={() => setSelectedNote('precise')}
+                onClick={() => setSelectedNote('external')}
                 className={`rounded-xl p-3 text-center border-2 transition-all ${
-                  selectedNote === 'precise' 
+                  selectedNote === 'external' 
                     ? 'bg-primary-50 border-primary-400' 
                     : 'bg-gray-50 border-gray-200 hover:border-primary-300'
                 }`}
               >
                 <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                  <MapPin size={20} className="text-primary-600" />
+                  <Car size={20} className="text-primary-600" />
                 </div>
-                <p className="text-xs font-almarai text-primary-700">دقيق</p>
+                <p className="text-xs font-almarai text-primary-700">غسيل خارجي</p>
+                <p className="text-xs font-almarai text-primary-700">فقط</p>
               </button>
 
               {/* Complete Service - Selected */}
               <button 
-                onClick={() => setSelectedNote('excellent')}
+                onClick={() => setSelectedNote('complete')}
                 className={`rounded-xl p-3 text-center border-2 transition-all ${
-                  selectedNote === 'excellent' 
+                  selectedNote === 'complete' 
                     ? 'bg-primary-50 border-primary-400' 
                     : 'bg-gray-50 border-gray-200 hover:border-primary-300'
                 }`}
               >
                 <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                  <Star size={20} className="text-primary-600" />
+                  <Car size={20} className="text-primary-600" />
                 </div>
-                <p className="text-xs font-almarai text-primary-700">ممتاز</p>
+                <p className="text-xs font-almarai text-primary-700">كامل</p>
               </button>
             </div>
 
