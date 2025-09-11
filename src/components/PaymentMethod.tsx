@@ -87,7 +87,7 @@ export default function PaymentMethod() {
 
           {/* Orders Note - Delivery Options */}
           <div className="p-4 mx-4 mt-4">
-            <h3 className="text-lg font-almarai font-bold text-gray-800 mb-4 text-center">ملاحظات للطلبات</h3>
+            <h3 className="text-lg font-almarai font-bold text-gray-800 mb-4 text-right">ملاحظات للطلبات</h3>
             
             <div className="grid grid-cols-3 gap-3 mb-4">
               {/* Home Delivery */}
@@ -109,35 +109,25 @@ export default function PaymentMethod() {
               </div>
 
               {/* Complete Service - Selected */}
-              <div className="bg-orange-50 border-2 border-orange-400 rounded-xl p-3 text-center">
-                <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                  <Car size={20} className="text-orange-600" />
+              <div className="bg-primary-50 border-2 border-primary-400 rounded-xl p-3 text-center">
+                <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                  <Car size={20} className="text-primary-600" />
                 </div>
-                <p className="text-xs font-almarai text-orange-700">كامل</p>
+                <p className="text-xs font-almarai text-primary-700">كامل</p>
               </div>
             </div>
 
             {/* Add Promo Code Button */}
-            <button className="w-full flex items-center justify-center gap-2 bg-gray-50 border border-gray-200 rounded-lg p-3 text-gray-600 hover:bg-gray-100 transition-colors">
+            <button className="w-full flex items-center justify-between bg-gray-50 border border-gray-200 rounded-lg p-3 text-gray-600 hover:bg-gray-100 transition-colors">
               <Plus size={16} />
               <span className="font-almarai">إضافة الرمز الترويجي</span>
+              <div></div>
             </button>
-          </div>
-
-          <div className="p-4">
-            <div className="bg-white border border-gray-200 rounded-lg p-4">
-              <div className="flex items-center justify-between">
-                <span className="font-almarai text-gray-600">F50</span>
-                <div className="w-4 h-4 border-2 border-primary-600 rounded bg-primary-600 flex items-center justify-center">
-                  <span className="text-white text-xs">✓</span>
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* Order Details */}
           <div className="bg-white p-4 mx-4 rounded-lg shadow-sm">
-            <h2 className="text-lg font-almarai font-bold text-gray-800 mb-4 text-center">تفاصيل الحجز</h2>
+            <h2 className="text-lg font-almarai font-bold text-gray-800 mb-4 text-right">تفاصيل الحجز</h2>
             
             <div className="space-y-3">
               <div className="flex justify-between items-center">
