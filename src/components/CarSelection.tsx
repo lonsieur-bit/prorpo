@@ -57,6 +57,11 @@ export default function CarSelection() {
 
   const getColorName = (colorValue: string) => {
     const color = colors.find(c => c.value === colorValue);
+    return color ? color.name : 'غير محدد';
+  };
+
+  const selectCar = (car: SavedCar) => {
+    setSelectedCar(car.id);
     updateUser({ 
       selectedCar: {
         brand: car.brand,
@@ -66,7 +71,6 @@ export default function CarSelection() {
         plateNumber: car.plateNumber
       }
     });
-    return color ? color.name : 'غير محدد';
   };
 
   return (
@@ -112,7 +116,6 @@ export default function CarSelection() {
                         : 'border-gray-200 hover:border-primary-300'
                     }`}
                     onClick={() => selectCar(car)}
-                    onClick={() => setSelectedCar(car.id)}
                   >
                     <div className="flex items-center gap-3">
                       <div className="bg-gray-100 p-3 rounded-lg">
