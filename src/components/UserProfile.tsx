@@ -105,15 +105,6 @@ export default function UserProfile() {
             </div>
           </div>
 
-          {/* Logout Button */}
-          <div className="mt-6">
-            <button 
-              onClick={() => navigate('/')}
-              className="w-full bg-red-500 hover:bg-red-600 text-white font-almarai font-bold py-4 px-6 rounded-2xl transition-all duration-200 hover:scale-[1.02] shadow-lg"
-            >
-              تسجيل الخروج
-            </button>
-          </div>
           {/* Curved bottom */}
           <div className="absolute bottom-0 left-0 right-0 h-6 bg-gray-50 rounded-t-3xl"></div>
         </div>
@@ -139,6 +130,16 @@ export default function UserProfile() {
                 </div>
               </button>
             ))}
+          </div>
+
+          {/* Logout Button - Better positioned */}
+          <div className="mt-6">
+            <button 
+              onClick={() => navigate('/')}
+              className="w-full bg-red-500 hover:bg-red-600 text-white font-almarai font-bold py-3 px-6 rounded-xl transition-all duration-200 shadow-sm"
+            >
+              تسجيل الخروج
+            </button>
           </div>
 
           {/* Contact Information Card */}
