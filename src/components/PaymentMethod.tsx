@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, CreditCard, Plus, CheckCircle2 } from 'lucide-react';
-import StatusBar from './StatusBar';
 
 export default function PaymentMethod() {
   const navigate = useNavigate();
@@ -18,7 +17,6 @@ export default function PaymentMethod() {
   if (showSuccess) {
     return (
       <div className="screen-container">
-        <StatusBar />
         <div className="flex flex-col items-center justify-center h-full p-6 text-center">
           <div className="bg-green-100 p-8 rounded-full mb-6">
             <CheckCircle2 size={64} className="text-green-600" />
@@ -42,7 +40,6 @@ export default function PaymentMethod() {
 
   return (
     <div className="screen-container">
-      <StatusBar />
       <div className="flex flex-col h-full">
         <div className="flex items-center justify-between p-6 border-b border-gray-200">
           <button onClick={() => navigate('/address')}>

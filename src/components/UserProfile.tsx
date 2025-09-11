@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, User, Phone, Mail, Settings, HelpCircle } from 'lucide-react';
-import StatusBar from './StatusBar';
 import { useApp } from '../context/AppContext';
 
 export default function UserProfile() {
@@ -17,7 +16,6 @@ export default function UserProfile() {
 
   return (
     <div className="screen-container">
-      <StatusBar />
       <div className="flex flex-col h-full">
         <div className="bg-gradient-to-r from-primary-600 to-secondary-500 text-white p-6">
           <button onClick={() => navigate('/home')} className="mb-4">

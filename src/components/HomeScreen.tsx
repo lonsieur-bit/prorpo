@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MapPin, Car, Sparkles, Calendar, User } from 'lucide-react';
-import StatusBar from './StatusBar';
 import { useApp } from '../context/AppContext';
 
 export default function HomeScreen() {
@@ -10,7 +9,6 @@ export default function HomeScreen() {
 
   return (
     <div className="screen-container">
-      <StatusBar />
       <div className="flex flex-col h-full">
         <div className="bg-gradient-to-r from-primary-600 to-secondary-500 text-white p-6 rounded-b-3xl">
           <div className="flex items-center justify-between mb-4">
@@ -32,6 +30,38 @@ export default function HomeScreen() {
         </div>
 
         <div className="flex-1 p-6">
+          <div className="mb-6">
+            <div className="bg-gradient-to-r from-orange-400 to-red-500 rounded-xl p-4 text-white mb-4">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="text-lg font-bold mb-1">عرض خاص!</h3>
+                  <p className="text-sm opacity-90">خصم 30% على جميع خدمات غسيل السيارات</p>
+                  <p className="text-xs opacity-80 mt-1">صالح حتى نهاية الشهر</p>
+                </div>
+                <div className="text-right">
+                  <div className="bg-white/20 px-3 py-1 rounded-full text-sm font-bold">
+                    30% خصم
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl p-4 text-white">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="text-lg font-bold mb-1">باقة VIP</h3>
+                  <p className="text-sm opacity-90">غسيل شامل + تلميع + تنظيف داخلي</p>
+                  <p className="text-xs opacity-80 mt-1">احجز الآن واحصل على خدمة مجانية</p>
+                </div>
+                <div className="text-right">
+                  <div className="bg-white/20 px-3 py-1 rounded-full text-sm font-bold">
+                    جديد
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
           <div className="mb-6">
             <div className="bg-gradient-to-r from-primary-50 to-secondary-50 p-4 rounded-xl">
               <div className="flex items-center gap-3 mb-3">

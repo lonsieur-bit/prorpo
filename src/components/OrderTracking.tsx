@@ -1,14 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, MapPin, Clock, Car, CheckCircle, Star } from 'lucide-react';
-import StatusBar from './StatusBar';
 
 export default function OrderTracking() {
   const navigate = useNavigate();
 
   return (
     <div className="screen-container">
-      <StatusBar />
       <div className="flex flex-col h-full">
         <div className="flex items-center justify-between p-6 border-b border-gray-200">
           <button onClick={() => navigate('/home')}>

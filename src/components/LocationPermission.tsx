@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, Car, Sparkles, MapPin } from 'lucide-react';
-import StatusBar from './StatusBar';
 
 export default function LocationPermission() {
   const navigate = useNavigate();
@@ -16,7 +15,6 @@ export default function LocationPermission() {
 
   return (
     <div className="screen-container">
-      <StatusBar />
       <div className="flex flex-col h-full p-6">
         <div className="flex items-center justify-between mb-8 pt-4">
           <ArrowRight size={24} className="text-gray-600" />

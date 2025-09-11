@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Car, Sparkles } from 'lucide-react';
-import StatusBar from './StatusBar';
 
 export default function SplashScreen() {
   const navigate = useNavigate();
@@ -16,7 +15,6 @@ export default function SplashScreen() {
 
   return (
     <div className="screen-container">
-      <StatusBar />
       <div className="flex flex-col items-center justify-center h-full bg-gradient-to-br from-primary-50 to-secondary-50 p-8">
         <div className="relative mb-8">
           <div className="bg-gradient-to-r from-primary-600 to-secondary-500 p-6 rounded-3xl shadow-xl">

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, MapPin, Edit3, Navigation } from 'lucide-react';
-import StatusBar from './StatusBar';
 
 export default function AddressConfirmation() {
   const navigate = useNavigate();
@@ -57,7 +56,6 @@ export default function AddressConfirmation() {
 
   return (
     <div className="screen-container">
-      <StatusBar />
       <div className="flex flex-col h-full">
         <div className="flex items-center justify-between p-6 border-b border-gray-200">
           <button onClick={() => navigate('/datetime')}>
