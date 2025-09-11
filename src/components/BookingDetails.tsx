@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowRight, MapPin, Plus, Navigation, Car } from 'lucide-react';
+import { ArrowRight, MapPin, Plus, Navigation } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 
 export default function BookingDetails() {
-  const { user } = useApp();
   const navigate = useNavigate();
-  const [selectedLocation, setSelectedLocation] = useState(user.currentAddress || 'اختر موقعك');
+  const { user } = useApp();
+  const [selectedLocation, setSelectedLocation] = useState('الرياض، حي شبرا 4231');
+  const [selectedColors, setSelectedColors] = useState([0, 1, 2]);
   const [isLoadingLocation, setIsLoadingLocation] = useState(false);
+
+  const colors = ['#1E40AF', '#0891B2', '#059669', '#DC2626', '#7C2D12', '#4338CA', '#0D9488', '#15803D'];
 
   const getCurrentLocation = () => {
     setIsLoadingLocation(true);
