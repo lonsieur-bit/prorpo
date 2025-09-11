@@ -97,17 +97,10 @@ export default function BookingDetails() {
               <label className="block text-sm font-almarai font-medium text-gray-700">اختيار السيارة</label>
               <button className="flex items-center gap-1 text-primary-600 text-sm">
                 <Plus size={16} />
-                <span onClick={() => navigate('/cars')}>إضافة سيارة جديدة</span>
+                <span onClick={() => navigate('/car-selection')}>إضافة سيارة جديدة</span>
               </button>
             </div>
             
-            <div className="bg-gray-50 p-4 rounded-lg">
-              <input
-                type="text"
-                className="input-field"
-                placeholder="أدخل تفاصيل السيارة"
-              />
-            </div>
           </div>
 
           <div className="mb-6">

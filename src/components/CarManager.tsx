@@ -39,20 +39,20 @@ export default function CarManager() {
     brand: '',
     model: '',
     year: '',
-    color: '#1E40AF',
+    color: '#6B7280',
     plateNumber: '',
     type: 'sedan' as 'sedan' | 'suv' | 'hatchback' | 'truck'
   });
 
   const colors = [
-    { name: 'أزرق', value: '#1E40AF' },
+    { name: 'ذهبي', value: '#D97706' },
     { name: 'أحمر', value: '#DC2626' },
     { name: 'أخضر', value: '#059669' },
+    { name: 'أزرق', value: '#1E40AF' },
+    { name: 'رمادي', value: '#6B7280' },
+    { name: 'رمادي فاتح', value: '#9CA3AF' },
     { name: 'أسود', value: '#1F2937' },
-    { name: 'أبيض', value: '#F9FAFB' },
-    { name: 'فضي', value: '#6B7280' },
-    { name: 'ذهبي', value: '#D97706' },
-    { name: 'بني', value: '#7C2D12' }
+    { name: 'أبيض', value: '#F9FAFB' }
   ];
 
   const carTypes = [
@@ -77,7 +77,7 @@ export default function CarManager() {
         brand: '',
         model: '',
         year: '',
-        color: '#1E40AF',
+        color: '#6B7280',
         plateNumber: '',
         type: 'sedan'
       });
@@ -217,10 +217,11 @@ export default function CarManager() {
 
                 <div>
                   <label className="block text-sm font-almarai font-medium text-gray-700 mb-2">اللون</label>
-                  <div className="grid grid-cols-4 gap-2">
+                  <div className="grid grid-cols-4 gap-3">
                     {colors.map((color) => (
                       <button
                         key={color.value}
+                        type="button"
                         onClick={() => setNewCar(prev => ({ ...prev, color: color.value }))}
                         className={`p-3 rounded-lg border-2 transition-all ${
                           newCar.color === color.value 
@@ -229,7 +230,9 @@ export default function CarManager() {
                         }`}
                       >
                         <div 
-                          className="w-6 h-6 rounded-full mx-auto mb-1 border"
+                          className={`w-6 h-6 rounded-full mx-auto mb-1 ${
+                            color.value === '#F9FAFB' ? 'border-2 border-gray-300' : 'border'
+                          }`}
                           style={{ backgroundColor: color.value }}
                         ></div>
                         <span className="text-xs font-arabic-city">{color.name}</span>

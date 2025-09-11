@@ -13,6 +13,7 @@ import OrderTracking from './components/OrderTracking';
 import UserProfile from './components/UserProfile';
 import LocationManager from './components/LocationManager';
 import CarManager from './components/CarManager';
+import CarSelection from './components/CarSelection';
 import GiftsPage from './components/GiftsPage';
 import OrdersPage from './components/OrdersPage';
 import { AppProvider } from './context/AppContext';
@@ -36,6 +37,7 @@ function App() {
             <Route path="/profile" element={<UserProfile />} />
             <Route path="/location" element={<LocationManager />} />
             <Route path="/cars" element={<CarManager />} />
+            <Route path="/car-selection" element={<CarSelection />} />
             <Route path="/gifts" element={<GiftsPage />} />
             <Route path="/orders" element={<OrdersPage />} />
           </Routes>
