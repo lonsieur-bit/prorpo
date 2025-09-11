@@ -92,7 +92,7 @@ export default function PinVerification() {
                 أدخل الرمز المكون من 5 أرقام
               </label>
               
-              <div className="flex justify-center gap-4 mb-6 px-2">
+              <div className="flex justify-center gap-3 mb-6 px-4">
                 {pin.map((digit, index) => (
                   <input
                     key={index}
@@ -100,7 +100,7 @@ export default function PinVerification() {
                     type="number"
                     value={digit}
                     onChange={(e) => handlePinChange(index, e.target.value)}
-                    className="w-16 h-16 text-center text-2xl font-bold border-2 border-gray-200 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-200 bg-gray-50 focus:bg-white transition-all shadow-sm"
+                    className="w-14 h-14 text-center text-xl font-bold border-2 border-gray-200 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-200 bg-gray-50 focus:bg-white transition-all"
                     maxLength={1}
                   />
                 ))}
