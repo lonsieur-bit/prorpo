@@ -87,41 +87,38 @@ export default function PaymentMethod() {
 
           {/* Orders Note - Delivery Options */}
           <div className="p-4 mx-4 mt-4">
-            <h3 className="text-lg font-almarai font-bold text-gray-800 mb-4 text-right">ملاحظات للطلبات</h3>
+            <h3 className="text-lg font-almarai font-bold text-gray-800 mb-4 text-right">ملاحظات للبايكر</h3>
             
             <div className="grid grid-cols-3 gap-3 mb-4">
               {/* Home Delivery */}
-              <div className="bg-white border-2 border-gray-200 rounded-xl p-3 text-center">
-                <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                  <Car size={20} className="text-gray-600" />
+              <div className="bg-primary-50 border-2 border-primary-400 rounded-xl p-3 text-center">
+                <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                  <Clock size={20} className="text-primary-600" />
                 </div>
-                <p className="text-xs font-almarai text-gray-700">غسيل داخلي</p>
-                <p className="text-xs font-almarai text-gray-500">فقط</p>
+                <p className="text-xs font-almarai text-primary-700">سريع</p>
               </div>
 
               {/* External Wash */}
-              <div className="bg-white border-2 border-gray-200 rounded-xl p-3 text-center">
-                <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                  <Car size={20} className="text-gray-600" />
+              <div className="bg-primary-50 border-2 border-primary-400 rounded-xl p-3 text-center">
+                <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                  <MapPin size={20} className="text-primary-600" />
                 </div>
-                <p className="text-xs font-almarai text-gray-700">غسيل خارجي</p>
-                <p className="text-xs font-almarai text-gray-500">فقط</p>
+                <p className="text-xs font-almarai text-primary-700">دقيق</p>
               </div>
 
               {/* Complete Service - Selected */}
               <div className="bg-primary-50 border-2 border-primary-400 rounded-xl p-3 text-center">
                 <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                  <Car size={20} className="text-primary-600" />
+                  <Star size={20} className="text-primary-600" />
                 </div>
-                <p className="text-xs font-almarai text-primary-700">كامل</p>
+                <p className="text-xs font-almarai text-primary-700">ممتاز</p>
               </div>
             </div>
 
             {/* Add Promo Code Button */}
-            <button className="w-full flex items-center justify-between bg-gray-50 border border-gray-200 rounded-lg p-3 text-gray-600 hover:bg-gray-100 transition-colors">
-              <Plus size={16} />
-              <span className="font-almarai">إضافة الرمز الترويجي</span>
-              <div></div>
+            <button className="w-full flex items-center justify-center gap-2 bg-gray-50 border border-gray-200 rounded-lg p-3 text-gray-600 hover:bg-gray-100 transition-colors">
+              <Plus size={16} className="text-gray-600" />
+              <span className="font-almarai text-gray-700">إضافة الرمز الترويجي</span>
             </button>
           </div>
 
