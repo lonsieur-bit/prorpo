@@ -5,7 +5,7 @@ import ProgressBar from './ProgressBar';
 
 export default function PinVerification() {
   const navigate = useNavigate();
-  const [pin, setPin] = useState(['', '', '', '', '']);
+  const [pin, setPin] = useState(['', '', '', '']);
   const [timeLeft, setTimeLeft] = useState(120); // 2 minutes
 
   React.useEffect(() => {
@@ -27,7 +27,7 @@ export default function PinVerification() {
       newPin[index] = value;
       setPin(newPin);
       
-      if (value && index < 4) {
+      if (value && index < 3) {
         const nextInput = document.getElementById(`pin-${index + 1}`);
         nextInput?.focus();
       }
@@ -41,7 +41,7 @@ export default function PinVerification() {
 
   const handleResend = () => {
     setTimeLeft(120);
-    setPin(['', '', '', '', '']);
+    setPin(['', '', '', '']);
   };
 
   return (
@@ -89,7 +89,7 @@ export default function PinVerification() {
             {/* PIN Input */}
             <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
               <label className="block text-sm font-almarai font-medium text-gray-700 mb-4 text-center">
-                أدخل الرمز المكون من 5 أرقام
+                أدخل الرمز المكون من 4 أرقام
               </label>
               
               <div className="flex justify-center gap-3 mb-6 px-4">
