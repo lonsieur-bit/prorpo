@@ -120,55 +120,39 @@ export default function DateTimeSelection() {
 
           <div className="mb-6">
             <h2 className="text-lg font-almarai font-bold text-gray-800 mb-4">الخدمات الإضافية</h2>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-3 gap-2">
               {/* Service 1 - Cleaning (Bucket) */}
-              <div className="bg-white border border-gray-200 rounded-xl p-4 text-center">
+              <div className="bg-white border border-gray-200 rounded-xl p-3 text-center">
                 <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-3">
                   <div className="w-6 h-6 bg-primary-600 rounded-sm"></div>
                 </div>
-                <h3 className="font-medium text-gray-800 mb-1">تنظيف (شامل)</h3>
-                <h3 className="font-almarai font-medium text-gray-800 mb-1">تنظيف (شامل)</h3>
-                <p className="text-xs font-arabic-city text-gray-500 mb-3">25 ر.س</p>
-                <button className="w-full bg-primary-600 text-white py-2 px-3 rounded-lg text-sm hover:bg-primary-700 transition-colors">
+                <h3 className="font-almarai font-medium text-gray-800 mb-1 text-xs">تنظيف شامل</h3>
+                <p className="text-xs font-arabic-city text-gray-500 mb-2">25 ر.س</p>
+                <button className="w-full bg-primary-600 text-white py-1 px-2 rounded-lg text-xs hover:bg-primary-700 transition-colors">
                   متاحة
                 </button>
               </div>
 
               {/* Service 2 - Wax (Bottle) */}
-              <div className="bg-white border border-gray-200 rounded-xl p-4 text-center">
+              <div className="bg-white border border-gray-200 rounded-xl p-3 text-center">
                 <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3">
                   <div className="w-4 h-6 bg-orange-500 rounded-sm"></div>
                 </div>
-                <h3 className="font-medium text-gray-800 mb-1">شمع</h3>
-                <h3 className="font-almarai font-medium text-gray-800 mb-1">شمع</h3>
-                <p className="text-xs font-arabic-city text-gray-500 mb-3">15 ر.س</p>
-                <button className="w-full bg-orange-500 text-white py-2 px-3 rounded-lg text-sm hover:bg-orange-600 transition-colors">
+                <h3 className="font-almarai font-medium text-gray-800 mb-1 text-xs">شمع</h3>
+                <p className="text-xs font-arabic-city text-gray-500 mb-2">15 ر.س</p>
+                <button className="w-full bg-orange-500 text-white py-1 px-2 rounded-lg text-xs hover:bg-orange-600 transition-colors">
                   متاحة
                 </button>
               </div>
 
               {/* Service 3 - Interior Cleaning */}
-              <div className="bg-white border border-gray-200 rounded-xl p-4 text-center">
+              <div className="bg-white border border-gray-200 rounded-xl p-3 text-center">
                 <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-3">
                   <div className="w-6 h-4 bg-gray-600 rounded-sm"></div>
                 </div>
-                <h3 className="font-medium text-gray-800 mb-1">تنظيف داخلي</h3>
-                <h3 className="font-almarai font-medium text-gray-800 mb-1">تنظيف داخلي</h3>
-                <p className="text-xs font-arabic-city text-gray-500 mb-3">30 ر.س</p>
-                <button className="w-full bg-gray-600 text-white py-2 px-3 rounded-lg text-sm hover:bg-gray-700 transition-colors">
-                  متاحة
-                </button>
-              </div>
-
-              {/* Service 4 - Polish */}
-              <div className="bg-white border border-gray-200 rounded-xl p-4 text-center">
-                <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <div className="w-4 h-6 bg-orange-500 rounded-sm"></div>
-                </div>
-                <h3 className="font-medium text-gray-800 mb-1">ملمع</h3>
-                <h3 className="font-almarai font-medium text-gray-800 mb-1">ملمع</h3>
-                <p className="text-xs font-arabic-city text-gray-500 mb-3">20 ر.س</p>
-                <button className="w-full bg-orange-500 text-white py-2 px-3 rounded-lg text-sm hover:bg-orange-600 transition-colors">
+                <h3 className="font-almarai font-medium text-gray-800 mb-1 text-xs">تنظيف داخلي</h3>
+                <p className="text-xs font-arabic-city text-gray-500 mb-2">30 ر.س</p>
+                <button className="w-full bg-gray-600 text-white py-1 px-2 rounded-lg text-xs hover:bg-gray-700 transition-colors">
                   متاحة
                 </button>
               </div>
@@ -177,7 +161,7 @@ export default function DateTimeSelection() {
         </div>
 
         {/* Total Order Section - Updated Design */}
-        <div className="bg-primary-600 text-white p-6">
+        <div className="bg-primary-600 text-white p-6 sticky bottom-0 z-10 shadow-lg">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="bg-white/20 p-2 rounded-lg">
