@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowRight, CreditCard, Plus, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CreditCard, Plus, CheckCircle2, Calendar, MapPin, Car, Clock } from 'lucide-react';
 
 export default function PaymentMethod() {
   const navigate = useNavigate();
@@ -10,28 +10,33 @@ export default function PaymentMethod() {
   const handleSubmit = () => {
     setShowSuccess(true);
     setTimeout(() => {
-      navigate('/rating');
+      navigate('/tracking');
     }, 2000);
   };
 
   if (showSuccess) {
     return (
       <div className="screen-container">
-        <div className="flex flex-col items-center justify-center h-full p-6 text-center">
-          <div className="bg-green-100 p-8 rounded-full mb-6">
-            <CheckCircle2 size={64} className="text-green-600" />
-          </div>
-          <h1 className="text-2xl font-bold text-gray-800 mb-2">تم الدفع بنجاح</h1>
-          <h1 className="text-2xl font-almarai font-bold text-gray-800 mb-2">تم الدفع بنجاح</h1>
-          <p className="text-gray-600 mb-8">
-            تم تسجيل الطلب وسيتم إرسال فني التنظيف إليك
-          </p>
-          <div className="w-full">
+        <div className="flex flex-col items-center justify-center h-full p-6 text-center bg-gray-100">
+          <div className="bg-white rounded-2xl p-8 shadow-lg max-w-sm w-full">
+            <div className="bg-primary-100 p-6 rounded-full mb-6 mx-auto w-20 h-20 flex items-center justify-center">
+              <CheckCircle2 size={40} className="text-primary-600" />
+            </div>
+            <h1 className="text-xl font-almarai font-bold text-gray-800 mb-3">تم الدفع بنجاح</h1>
+            <p className="text-gray-600 font-arabic-city mb-6 leading-relaxed">
+              تم الدفع بنجاح وتأكيد الموعد
+            </p>
             <button 
               onClick={() => navigate('/tracking')}
-              className="btn-primary"
+              className="w-full bg-primary-600 text-white font-almarai font-bold py-3 px-6 rounded-xl hover:bg-primary-700 transition-colors mb-3"
             >
               عرض تفاصيل الطلب
+            </button>
+            <button 
+              onClick={() => navigate('/home')}
+              className="w-full text-primary-600 font-almarai font-medium py-2 px-6 hover:bg-primary-50 transition-colors"
+            >
+              العودة إلى الرئيسية
             </button>
           </div>
         </div>
@@ -40,112 +45,134 @@ export default function PaymentMethod() {
   }
 
   return (
-    <div className="screen-container">
+    <div className="screen-container bg-gray-50">
       <div className="flex flex-col h-full">
-        <div className="flex items-center justify-between p-6 border-b border-gray-200">
+        {/* Header */}
+        <div className="bg-white flex items-center justify-between p-4 shadow-sm">
           <button onClick={() => navigate('/address')}>
             <ArrowRight size={24} className="text-gray-600" />
           </button>
-          <h1 className="text-lg font-almarai font-bold text-gray-800">الدفع</h1>
-          <div></div>
+          <h1 className="text-lg font-almarai font-bold text-gray-800">تأكيد الحجز</h1>
+          <div className="flex items-center gap-1 text-sm text-gray-600">
+            <Calendar size={16} />
+            <span className="font-arabic-city">تاريخ ووقت الحجز</span>
+          </div>
         </div>
 
-        <div className="flex-1 p-6 overflow-y-auto">
-          <div className="mb-6">
-            <h2 className="text-lg font-almarai font-bold text-gray-800 mb-4">اختر طريقة الدفع</h2>
+        <div className="flex-1 overflow-y-auto">
+          {/* Map Section */}
+          <div className="bg-gray-300 h-48 relative">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="text-center">
+                <MapPin size={32} className="text-gray-600 mx-auto mb-2" />
+                <p className="text-gray-600 text-sm font-arabic-city">خريطة الموقع</p>
+              </div>
+            </div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+              <div className="w-6 h-6 bg-primary-600 rounded-full border-4 border-white shadow-lg"></div>
+            </div>
+            <button className="absolute top-4 right-4 bg-white p-2 rounded-lg shadow-sm">
+              <span className="text-xs font-arabic-city text-gray-600">Locate me</span>
+            </button>
+          </div>
+
+          {/* Location and Date Info */}
+          <div className="bg-white p-4 border-b border-gray-100">
+            <div className="flex items-center justify-between mb-2">
+              <div className="flex items-center gap-2">
+                <MapPin size={16} className="text-gray-600" />
+                <span className="text-sm font-arabic-city text-gray-600">العنوان</span>
+              </div>
+              <span className="text-sm font-almarai font-medium text-gray-800">الرياض، ح. شارع 4231</span>
+            </div>
+            <div className="flex items-center justify-between mb-2">
+              <div className="flex items-center gap-2">
+                <Calendar size={16} className="text-gray-600" />
+                <span className="text-sm font-arabic-city text-gray-600">التاريخ الحجز</span>
+              </div>
+              <span className="text-sm font-almarai font-medium text-gray-800">December 23, 2025</span>
+            </div>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Clock size={16} className="text-gray-600" />
+                <span className="text-sm font-arabic-city text-gray-600">وقت الحجز</span>
+              </div>
+              <span className="text-sm font-almarai font-medium text-gray-800">10:00 AM</span>
+            </div>
+          </div>
+
+          {/* Vehicle Section */}
+          <div className="bg-white p-4 border-b border-gray-100">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <Car size={20} className="text-gray-600" />
+                <div>
+                  <p className="text-sm font-arabic-city text-gray-600">المركبة</p>
+                  <p className="font-almarai font-medium text-gray-800">مركبة 1</p>
+                  <p className="text-xs font-arabic-city text-gray-500">خدمة تجريبية</p>
+                </div>
+              </div>
+              <button className="bg-primary-600 text-white px-4 py-2 rounded-lg text-sm font-almarai">
+                تغيير
+              </button>
+            </div>
+          </div>
+
+          {/* Cancellation Notice */}
+          <div className="bg-primary-600 text-white p-4 mx-4 mt-4 rounded-lg">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-white">✕</span>
+              <span className="font-almarai font-medium">الإلغاء عدم الإنتظار</span>
+            </div>
+            <p className="text-xs font-arabic-city text-white/90">الرمز الترويجي</p>
+          </div>
+
+          {/* Promo Code */}
+          <div className="p-4">
+            <div className="bg-white border border-gray-200 rounded-lg p-3">
+              <div className="flex items-center justify-between">
+                <span className="font-arabic-city text-gray-600">F50</span>
+                <div className="w-4 h-4 border-2 border-primary-600 rounded bg-primary-600 flex items-center justify-center">
+                  <span className="text-white text-xs">✓</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Order Details */}
+          <div className="bg-white p-4 mx-4 rounded-lg shadow-sm">
+            <h2 className="text-lg font-almarai font-bold text-gray-800 mb-4 text-center">تفاصيل الحجز</h2>
             
             <div className="space-y-3">
-              <div className="border border-gray-200 rounded-lg p-4">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-3">
-                    <CreditCard size={24} className="text-primary-600" />
-                    <div>
-                      <p className="font-medium text-gray-800">Mastercard</p>
-                      <p className="text-sm text-gray-500">**** **** **** 4545</p>
-                    </div>
-                  </div>
-                  <input
-                    type="radio"
-                    name="payment"
-                    value="card1"
-                    checked={selectedPayment === 'card1'}
-                    onChange={(e) => setSelectedPayment(e.target.value)}
-                    className="text-primary-600"
-                  />
-                </div>
-                <button className="flex items-center gap-2 text-primary-600 text-sm">
-                  <Plus size={16} />
-                  إضافة بطاقة جديدة
-                </button>
+              <div className="flex justify-between items-center">
+                <span className="text-sm font-arabic-city text-gray-600">غسيل</span>
+                <span className="font-almarai text-gray-800">1</span>
+                <span className="font-almarai text-gray-800">ر.س 233</span>
               </div>
-
-              <div className="border border-gray-200 rounded-lg p-4">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="w-6 h-6 bg-gradient-to-r from-purple-500 to-blue-500 rounded"></div>
-                    <p className="font-medium text-gray-800">Apple Pay</p>
-                  </div>
-                  <input
-                    type="radio"
-                    name="payment"
-                    value="apple"
-                    checked={selectedPayment === 'apple'}
-                    onChange={(e) => setSelectedPayment(e.target.value)}
-                    className="text-primary-600"
-                  />
-                </div>
+              <div className="flex justify-between items-center">
+                <span className="text-sm font-arabic-city text-gray-600">خدمات إضافية</span>
+                <span className="font-almarai text-gray-800">2</span>
+                <span className="font-almarai text-gray-800">ر.س 28</span>
               </div>
-
-              <div className="border border-gray-200 rounded-lg p-4">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="w-6 h-6 bg-green-500 rounded"></div>
-                    <p className="font-medium text-gray-800">الدفع عند الاستلام</p>
-                  </div>
-                  <input
-                    type="radio"
-                    name="payment"
-                    value="cash"
-                    checked={selectedPayment === 'cash'}
-                    onChange={(e) => setSelectedPayment(e.target.value)}
-                    className="text-primary-600"
-                  />
-                </div>
+              <div className="flex justify-between items-center">
+                <span className="text-sm font-arabic-city text-gray-600">المبلغ قبل الضريبة</span>
+                <span className="font-almarai text-gray-800">ر.س 123</span>
               </div>
-            </div>
-          </div>
-
-          <div className="mb-6">
-            <h2 className="text-xl font-almarai font-bold text-gray-800 mb-4">ملخص الطلب</h2>
-            <div className="bg-gray-50 rounded-lg p-4 space-y-3">
-              <div className="flex justify-between">
-                <span className="text-gray-600 font-arabic-city">الخدمة</span>
-                <span className="font-almarai font-medium">غسيل السيارة</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-gray-600 font-arabic-city">التاريخ</span>
-                <span className="font-almarai font-medium">20 مارس 2024</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-gray-600 font-arabic-city">الوقت</span>
-                <span className="font-almarai font-medium">10:00 صباحاً</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-gray-600 font-arabic-city">الموقع</span>
-                <span className="font-almarai font-medium">الرياض، حي شبرا 4231</span>
-              </div>
-              <hr className="border-gray-300" />
-              <div className="flex justify-between text-xl font-almarai font-bold">
-                <span className="text-gray-800">الإجمالي</span>
-                <span className="text-primary-600">399 ريال</span>
+              <div className="flex justify-between items-center">
+                <span className="text-sm font-arabic-city text-gray-600">ضريبة القيمة المضافة</span>
+                <span className="font-almarai text-gray-800">ر.س 3</span>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="p-6 border-t border-gray-200">
-          <button onClick={handleSubmit} className="btn-primary">
-            ادفع
+        {/* Bottom Confirm Button */}
+        <div className="bg-white p-4 border-t border-gray-200">
+          <button 
+            onClick={handleSubmit}
+            className="w-full bg-primary-600 text-white font-almarai font-bold py-4 px-6 rounded-xl hover:bg-primary-700 transition-colors"
+          >
+            تأكيد
           </button>
         </div>
       </div>

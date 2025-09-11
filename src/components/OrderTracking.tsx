@@ -130,8 +130,11 @@ export default function OrderTracking() {
         </div>
 
         <div className="p-6 border-t border-gray-200">
-          <button className="btn-primary">
-            تأكيد
+          <button 
+            onClick={() => navigate('/rating')}
+            className="btn-primary"
+          >
+            تم إنهاء الخدمة
           </button>
         </div>
       </div>
