@@ -5,10 +5,7 @@ import { ArrowRight, Bell, Globe, Shield, Moon, Volume2 } from 'lucide-react';
 export default function SettingsPage() {
   const navigate = useNavigate();
   const [settings, setSettings] = useState({
-    notifications: true,
-    soundEnabled: true,
-    darkMode: false,
-    language: 'ar'
+    notifications: true
   });
 
   const toggleSetting = (key: keyof typeof settings) => {
@@ -24,24 +21,6 @@ export default function SettingsPage() {
       label: 'الإشعارات',
       key: 'notifications' as keyof typeof settings,
       type: 'toggle'
-    },
-    {
-      icon: Volume2,
-      label: 'الأصوات',
-      key: 'soundEnabled' as keyof typeof settings,
-      type: 'toggle'
-    },
-    {
-      icon: Moon,
-      label: 'الوضع الليلي',
-      key: 'darkMode' as keyof typeof settings,
-      type: 'toggle'
-    },
-    {
-      icon: Globe,
-      label: 'اللغة',
-      key: 'language' as keyof typeof settings,
-      type: 'select'
     },
     {
       icon: Shield,
@@ -85,18 +64,6 @@ export default function SettingsPage() {
                     />
                   </button>
                 )}
-                
-                {item.type === 'select' && (
-                  <select
-                    value={settings[item.key]}
-                    onChange={(e) => setSettings(prev => ({ ...prev, [item.key]: e.target.value }))}
-                    className="bg-gray-100 border border-gray-300 rounded-lg px-3 py-1 text-sm"
-                  >
-                    <option value="ar">العربية</option>
-                    <option value="en">English</option>
-                  </select>
-                )}
-                
                 {item.type === 'navigation' && (
                   <ArrowRight size={16} className="text-gray-400 rotate-180" />
                 )}
@@ -108,7 +75,7 @@ export default function SettingsPage() {
             <h3 className="text-lg font-almarai font-bold text-gray-800 mb-4">حول التطبيق</h3>
             <div className="space-y-2">
               <p className="text-sm font-arabic-city text-gray-600">الإصدار: 1.0.0</p>
-              <p className="text-sm font-arabic-city text-gray-600">آخر تحديث: ديسمبر 2024</p>
+              <p className="text-sm font-arabic-city text-gray-600">آخر تحديث: يناير 2025</p>
             </div>
           </div>
         </div>
