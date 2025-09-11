@@ -10,7 +10,7 @@ export default function PaymentMethod() {
   const handleSubmit = () => {
     setShowSuccess(true);
     setTimeout(() => {
-      navigate('/tracking');
+      navigate('/rating');
     }, 2000);
   };
 
@@ -116,27 +116,27 @@ export default function PaymentMethod() {
           </div>
 
           <div className="mb-6">
-            <h2 className="text-lg font-almarai font-bold text-gray-800 mb-4">ملخص الطلب</h2>
+            <h2 className="text-xl font-almarai font-bold text-gray-800 mb-4">ملخص الطلب</h2>
             <div className="bg-gray-50 rounded-lg p-4 space-y-3">
               <div className="flex justify-between">
-                <span className="text-gray-600">الخدمة</span>
-                <span className="font-medium">غسيل السيارة</span>
+                <span className="text-gray-600 font-arabic-city">الخدمة</span>
+                <span className="font-almarai font-medium">غسيل السيارة</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-600">التاريخ</span>
-                <span className="font-medium">20 مارس 2024</span>
+                <span className="text-gray-600 font-arabic-city">التاريخ</span>
+                <span className="font-almarai font-medium">20 مارس 2024</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-600">الوقت</span>
-                <span className="font-medium">10:00 صباحاً</span>
+                <span className="text-gray-600 font-arabic-city">الوقت</span>
+                <span className="font-almarai font-medium">10:00 صباحاً</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-600">الموقع</span>
-                <span className="font-medium">الرياض، حي شبرا 4231</span>
+                <span className="text-gray-600 font-arabic-city">الموقع</span>
+                <span className="font-almarai font-medium">الرياض، حي شبرا 4231</span>
               </div>
               <hr className="border-gray-300" />
-              <div className="flex justify-between text-lg font-bold">
-                <span>الإجمالي</span>
+              <div className="flex justify-between text-xl font-almarai font-bold">
+                <span className="text-gray-800">الإجمالي</span>
                 <span className="text-primary-600">399 ريال</span>
               </div>
             </div>

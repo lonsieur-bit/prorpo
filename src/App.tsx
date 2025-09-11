@@ -16,6 +16,7 @@ import CarManager from './components/CarManager';
 import CarSelection from './components/CarSelection';
 import GiftsPage from './components/GiftsPage';
 import OrdersPage from './components/OrdersPage';
+import ServiceRating from './components/ServiceRating';
 import { AppProvider } from './context/AppContext';
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
             <Route path="/car-selection" element={<CarSelection />} />
             <Route path="/gifts" element={<GiftsPage />} />
             <Route path="/orders" element={<OrdersPage />} />
+            <Route path="/rating" element={<ServiceRating />} />
           </Routes>
         </div>
       </Router>

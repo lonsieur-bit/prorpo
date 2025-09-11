@@ -129,7 +129,7 @@ export default function DateTimeSelection() {
                 <h3 className="font-almarai font-medium text-gray-800 mb-1 text-xs">تنظيف شامل</h3>
                 <p className="text-xs font-arabic-city text-gray-500 mb-2">25 ر.س</p>
                 <button className="w-full bg-primary-600 text-white py-1 px-2 rounded-lg text-xs hover:bg-primary-700 transition-colors">
-                  متاحة
+                  إضافة
                 </button>
               </div>
 
@@ -141,7 +141,7 @@ export default function DateTimeSelection() {
                 <h3 className="font-almarai font-medium text-gray-800 mb-1 text-xs">شمع</h3>
                 <p className="text-xs font-arabic-city text-gray-500 mb-2">15 ر.س</p>
                 <button className="w-full bg-orange-500 text-white py-1 px-2 rounded-lg text-xs hover:bg-orange-600 transition-colors">
-                  متاحة
+                  إضافة
                 </button>
               </div>
 
@@ -153,7 +153,7 @@ export default function DateTimeSelection() {
                 <h3 className="font-almarai font-medium text-gray-800 mb-1 text-xs">تنظيف داخلي</h3>
                 <p className="text-xs font-arabic-city text-gray-500 mb-2">30 ر.س</p>
                 <button className="w-full bg-gray-600 text-white py-1 px-2 rounded-lg text-xs hover:bg-gray-700 transition-colors">
-                  متاحة
+                  إضافة
                 </button>
               </div>
             </div>
