@@ -99,8 +99,8 @@ export default function UserProfile() {
                 <p className="text-white/80 text-xs font-arabic-city">التقييم</p>
               </div>
               <div className="bg-white/15 backdrop-blur-sm rounded-xl p-3 text-center border border-white/20">
-                <p className="text-2xl font-almarai font-bold text-white">2</p>
-                <p className="text-white/80 text-xs font-arabic-city">سنة معنا</p>
+                <p className="text-2xl font-almarai font-bold text-white">95%</p>
+                <p className="text-white/80 text-xs font-arabic-city">نسبة الرضا</p>
               </div>
             </div>
           </div>
