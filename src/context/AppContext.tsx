@@ -6,13 +6,6 @@ interface AppContextType {
     phone: string;
     email: string;
     currentAddress?: string;
-    selectedCar?: {
-      brand: string;
-      model: string;
-      year: string;
-      color: string;
-      plateNumber: string;
-    };
   };
   booking: {
     location: string;
