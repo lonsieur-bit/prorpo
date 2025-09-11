@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { MapPin, Car, Sparkles, Calendar, User, Gift, ShoppingBag } from 'lucide-react';
+import { MapPin, Car, Sparkles, Calendar, User, Gift, ShoppingBag, Menu, ChevronDown } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 
 export default function HomeScreen() {
@@ -13,29 +13,46 @@ export default function HomeScreen() {
         {/* Header */}
         <div className="bg-white p-4 shadow-sm">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="flex items-center gap-2">
-                <img 
-                  src="/شعار نشمي.pdf (3).png" 
-                  alt="شعار نشمي" 
-                  className="w-8 h-8 object-contain"
-                />
-              </div>
-            </div>
-            <div className="flex items-center gap-2 text-right">
-              <button 
-                onClick={() => navigate('/location')}
-                className="hover:text-primary-600 transition-colors"
-              >
+            {/* Menu Button */}
+            <button className="p-2 bg-gray-100 rounded-lg">
+              <Menu size={20} className="text-gray-600" />
+            </button>
+
+            {/* Location Dropdown */}
+            <button 
+              onClick={() => navigate('/location')}
+              className="flex items-center gap-2 bg-gray-100 px-3 py-2 rounded-lg hover:bg-gray-200 transition-colors"
+            >
+              <ChevronDown size={16} className="text-gray-600" />
+              <div className="text-right">
                 <p className="text-sm font-almarai font-bold text-gray-800">الموقع</p>
                 <p className="text-xs font-arabic-city text-gray-500">{user.currentAddress || 'الرياض، ح. شارع 4231'}</p>
-              </button>
-              <MapPin size={20} className="text-gray-600" />
-            </div>
+              </div>
+              <MapPin size={18} className="text-gray-600" />
+            </button>
+
+            {/* Notification/Profile Button */}
+            <button 
+              onClick={() => navigate('/profile')}
+              className="p-2 bg-gray-100 rounded-lg"
+            >
+              <div className="w-6 h-6 bg-primary-600 rounded-full flex items-center justify-center">
+                <User size={14} className="text-white" />
+              </div>
+            </button>
           </div>
         </div>
 
         <div className="flex-1 p-4 space-y-6">
+          {/* Banner Image */}
+          <div className="bg-white rounded-2xl overflow-hidden shadow-sm">
+            <img 
+              src="/لون[1].pdf.png" 
+              alt="عروض الإطارات" 
+              className="w-full h-48 object-cover"
+            />
+          </div>
+
           {/* Main Service Card */}
           <div className="bg-white rounded-2xl p-6 shadow-sm">
             <div className="text-center mb-6">
@@ -46,7 +63,6 @@ export default function HomeScreen() {
                   className="w-16 h-16 object-contain"
                 />
               </div>
-              <h2 className="text-xl font-bold text-gray-800 mb-2">كار سيرفيس</h2>
               <h2 className="text-xl font-almarai font-bold text-gray-800 mb-2">كار سيرفيس</h2>
               <p className="text-gray-600 text-sm font-arabic-city">خدمة التنظيف الأول</p>
             </div>
@@ -96,7 +112,6 @@ export default function HomeScreen() {
                       className="w-10 h-10 object-contain"
                     />
                   </div>
-                  <h4 className="font-bold text-gray-800 mb-1">غسيل سيارات 2</h4>
                   <h4 className="font-almarai font-bold text-gray-800 mb-1">غسيل سيارات 2</h4>
                   <p className="text-xs font-arabic-city text-gray-600 mb-3">حالة جديدة</p>
                 </div>
@@ -115,7 +130,6 @@ export default function HomeScreen() {
                       className="w-10 h-10 object-contain"
                     />
                   </div>
-                  <h4 className="font-bold text-gray-800 mb-1">غسيل سيارات</h4>
                   <h4 className="font-almarai font-bold text-gray-800 mb-1">غسيل سيارات</h4>
                   <p className="text-xs font-arabic-city text-gray-600 mb-3">حالة جديدة</p>
                 </div>
@@ -134,31 +148,19 @@ export default function HomeScreen() {
               <Car size={20} className="text-blue-500" />
               <span className="text-xs text-blue-500 font-medium">الرئيسية</span>
             </button>
-            <button className="flex flex-col items-center gap-1">
-              <ShoppingBag 
-                size={20} 
-                className="text-gray-400" 
-                onClick={() => navigate('/orders')}
-              />
-              <span 
-                className="text-xs text-gray-400"
-                onClick={() => navigate('/orders')}
-              >
-                طلباتي
-              </span>
+            <button 
+              onClick={() => navigate('/orders')}
+              className="flex flex-col items-center gap-1"
+            >
+              <ShoppingBag size={20} className="text-gray-400" />
+              <span className="text-xs text-gray-400">طلباتي</span>
             </button>
-            <button className="flex flex-col items-center gap-1">
-              <Gift 
-                size={20} 
-                className="text-gray-400"
-                onClick={() => navigate('/gifts')}
-              />
-              <span 
-                className="text-xs text-gray-400"
-                onClick={() => navigate('/gifts')}
-              >
-                هدايا
-              </span>
+            <button 
+              onClick={() => navigate('/gifts')}
+              className="flex flex-col items-center gap-1"
+            >
+              <Gift size={20} className="text-gray-400" />
+              <span className="text-xs text-gray-400">هدايا</span>
             </button>
             <button 
               onClick={() => navigate('/profile')}
