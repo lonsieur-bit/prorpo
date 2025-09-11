@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import ProgressBar from './ProgressBar';
 
 export default function PhoneVerification() {
   const navigate = useNavigate();
@@ -28,23 +29,7 @@ export default function PhoneVerification() {
             />
           </div>
           
-          {/* Progress indicator */}
-          <div className="flex items-center gap-1">
-            <div className="flex gap-1">
-              <div className="w-2 h-2 bg-primary-600 rounded-full"></div>
-              <div className="w-2 h-2 bg-primary-600 rounded-full"></div>
-              <div className="w-2 h-2 bg-primary-600 rounded-full"></div>
-              <div className="w-2 h-2 bg-primary-600 rounded-full"></div>
-            </div>
-            <div className="flex gap-1 ml-1">
-              <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
-              <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
-              <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
-              <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
-              <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
-              <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
-            </div>
-          </div>
+          <ProgressBar currentStep={0} totalSteps={4} />
         </div>
 
         {/* Content */}

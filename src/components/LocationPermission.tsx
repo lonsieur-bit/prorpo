@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, Car, Sparkles, MapPin } from 'lucide-react';
+import ProgressBar from './ProgressBar';
 
 export default function LocationPermission() {
   const navigate = useNavigate();
@@ -25,11 +26,7 @@ export default function LocationPermission() {
               className="w-8 h-8 object-contain"
             />
           </div>
-          <div className="flex gap-1">
-            <div className="w-6 h-1 bg-primary-600 rounded"></div>
-            <div className="w-2 h-1 bg-primary-600 rounded"></div>
-            <div className="w-2 h-1 bg-primary-600 rounded"></div>
-          </div>
+          <ProgressBar currentStep={2} totalSteps={4} />
         </div>
 
         <div className="flex-1 flex flex-col items-center justify-center text-center">
