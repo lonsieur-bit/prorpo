@@ -19,10 +19,11 @@ export default function LocationPermission() {
         <div className="flex items-center justify-between mb-8 pt-4">
           <ArrowRight size={24} className="text-gray-600" />
           <div className="flex items-center gap-2">
-            <div className="bg-gradient-to-r from-primary-600 to-secondary-500 p-2 rounded-lg">
-              <Car size={20} className="text-white" />
-            </div>
-            <Sparkles size={20} className="text-secondary-500" />
+            <img 
+              src="/شعار نشمي.pdf (3).png" 
+              alt="شعار نشمي" 
+              className="w-8 h-8 object-contain"
+            />
           </div>
           <div className="flex gap-1">
             <div className="w-6 h-1 bg-primary-600 rounded"></div>

@@ -17,11 +17,13 @@ export default function SplashScreen() {
     <div className="screen-container">
       <div className="flex flex-col items-center justify-center h-full bg-gradient-to-br from-primary-50 to-secondary-50 p-8">
         <div className="relative mb-8">
-          <div className="bg-gradient-to-r from-primary-600 to-secondary-500 p-6 rounded-3xl shadow-xl">
-            <Car size={48} className="text-white" />
+          <div className="bg-white p-6 rounded-3xl shadow-xl">
+            <img 
+              src="/شعار نشمي.pdf (3).png" 
+              alt="شعار نشمي" 
+              className="w-12 h-12 object-contain"
+            />
           </div>
-          <Sparkles className="absolute -top-2 -right-2 text-secondary-400" size={24} />
-          <Sparkles className="absolute -bottom-2 -left-2 text-primary-400" size={20} />
         </div>
         
         <div className="text-center">

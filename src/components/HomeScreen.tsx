@@ -15,10 +15,11 @@ export default function HomeScreen() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-2">
-                <div className="bg-gradient-to-r from-blue-500 to-cyan-400 p-2 rounded-lg">
-                  <Car size={20} className="text-white" />
-                </div>
-                <Sparkles size={16} className="text-cyan-400" />
+                <img 
+                  src="/شعار نشمي.pdf (3).png" 
+                  alt="شعار نشمي" 
+                  className="w-8 h-8 object-contain"
+                />
               </div>
             </div>
             <div className="flex items-center gap-2">
@@ -35,11 +36,12 @@ export default function HomeScreen() {
           {/* Main Service Card */}
           <div className="bg-white rounded-2xl p-6 shadow-sm">
             <div className="text-center mb-6">
-              <div className="flex items-center justify-center gap-2 mb-4">
-                <div className="bg-gradient-to-r from-blue-500 to-cyan-400 p-3 rounded-xl">
-                  <Car size={32} className="text-white" />
-                </div>
-                <Sparkles size={24} className="text-cyan-400" />
+              <div className="flex items-center justify-center mb-4">
+                <img 
+                  src="/شعار نشمي.pdf (3).png" 
+                  alt="شعار نشمي" 
+                  className="w-16 h-16 object-contain"
+                />
               </div>
               <h2 className="text-xl font-bold text-gray-800 mb-2">كار سيرفيس</h2>
               <p className="text-gray-600 text-sm">خدمة التنظيف الأول</p>
@@ -65,13 +67,14 @@ export default function HomeScreen() {
             {/* Book Button */}
             <button 
               onClick={() => navigate('/booking')}
-              className="w-full bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-medium py-3 px-6 rounded-xl flex items-center justify-center gap-2"
+              className="w-full bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-medium py-3 px-6 rounded-xl flex items-center justify-center gap-3"
             >
               الذهاب إلى الحجز
-              <div className="flex items-center gap-1">
-                <Car size={16} />
-                <Sparkles size={14} />
-              </div>
+              <img 
+                src="/شعار نشمي.pdf (3).png" 
+                alt="شعار نشمي" 
+                className="w-5 h-5 object-contain"
+              />
             </button>
           </div>
 
@@ -82,11 +85,12 @@ export default function HomeScreen() {
               {/* Service Card 1 */}
               <div className="bg-white rounded-xl p-4 shadow-sm">
                 <div className="text-center mb-4">
-                  <div className="flex items-center justify-center gap-1 mb-3">
-                    <div className="bg-gradient-to-r from-blue-500 to-cyan-400 p-2 rounded-lg">
-                      <Car size={24} className="text-white" />
-                    </div>
-                    <Sparkles size={16} className="text-cyan-400" />
+                  <div className="flex items-center justify-center mb-3">
+                    <img 
+                      src="/شعار نشمي.pdf (3).png" 
+                      alt="شعار نشمي" 
+                      className="w-10 h-10 object-contain"
+                    />
                   </div>
                   <h4 className="font-bold text-gray-800 mb-1">غسيل سيارات 2</h4>
                   <p className="text-xs text-gray-600 mb-3">حالة جديدة</p>
@@ -99,11 +103,12 @@ export default function HomeScreen() {
               {/* Service Card 2 */}
               <div className="bg-white rounded-xl p-4 shadow-sm">
                 <div className="text-center mb-4">
-                  <div className="flex items-center justify-center gap-1 mb-3">
-                    <div className="bg-gradient-to-r from-blue-500 to-cyan-400 p-2 rounded-lg">
-                      <Car size={24} className="text-white" />
-                    </div>
-                    <Sparkles size={16} className="text-cyan-400" />
+                  <div className="flex items-center justify-center mb-3">
+                    <img 
+                      src="/شعار نشمي.pdf (3).png" 
+                      alt="شعار نشمي" 
+                      className="w-10 h-10 object-contain"
+                    />
                   </div>
                   <h4 className="font-bold text-gray-800 mb-1">غسيل سيارات</h4>
                   <p className="text-xs text-gray-600 mb-3">حالة جديدة</p>
