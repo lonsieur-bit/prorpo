@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, Plus, Car } from 'lucide-react';
+import { useApp } from '../context/AppContext';
 
 interface SavedCar {
   id: string;
@@ -14,6 +15,7 @@ interface SavedCar {
 
 export default function CarSelection() {
   const navigate = useNavigate();
+  const { updateUser } = useApp();
   const [selectedCar, setSelectedCar] = useState<string | null>(null);
   
   const savedCars: SavedCar[] = [
@@ -55,6 +57,15 @@ export default function CarSelection() {
 
   const getColorName = (colorValue: string) => {
     const color = colors.find(c => c.value === colorValue);
+    updateUser({ 
+      selectedCar: {
+        brand: car.brand,
+        model: car.model,
+        year: car.year,
+        color: getColorName(car.color),
+        plateNumber: car.plateNumber
+      }
+    });
     return color ? color.name : 'غير محدد';
   };
 
@@ -100,6 +111,7 @@ export default function CarSelection() {
                         ? 'border-primary-600 bg-primary-50' 
                         : 'border-gray-200 hover:border-primary-300'
                     }`}
+                    onClick={() => selectCar(car)}
                     onClick={() => setSelectedCar(car.id)}
                   >
                     <div className="flex items-center gap-3">
@@ -134,21 +146,13 @@ export default function CarSelection() {
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-almarai font-medium text-gray-700 mb-2">ماركة السيارة</label>
-                <select
+                <input
+                  type="text"
                   value={newCarForm.brand}
                   onChange={(e) => setNewCarForm(prev => ({ ...prev, brand: e.target.value }))}
                   className="input-field"
-                >
-                  <option value="">اختر الماركة</option>
-                  <option value="تويوتا">تويوتا</option>
-                  <option value="هوندا">هوندا</option>
-                  <option value="نيسان">نيسان</option>
-                  <option value="هيونداي">هيونداي</option>
-                  <option value="كيا">كيا</option>
-                  <option value="مازدا">مازدا</option>
-                  <option value="فورد">فورد</option>
-                  <option value="شيفروليه">شيفروليه</option>
-                </select>
+                  placeholder="مثال: تويوتا، هوندا، نيسان"
+                />
               </div>
 
               <div>
@@ -212,10 +216,23 @@ export default function CarSelection() {
 
         <div className="p-6 border-t border-gray-200">
           <button 
-            onClick={() => navigate(-1)}
+            onClick={() => {
+              if (newCarForm.brand && newCarForm.model) {
+                updateUser({ 
+                  selectedCar: {
+                    brand: newCarForm.brand,
+                    model: newCarForm.model,
+                    year: newCarForm.year,
+                    color: getColorName(newCarForm.color),
+                    plateNumber: newCarForm.plateNumber
+                  }
+                });
+              }
+              navigate(-1);
+            }}
             className="w-full bg-primary-600 text-white font-almarai font-bold py-4 px-6 rounded-xl hover:bg-primary-700 transition-colors"
           >
-            إضافة
+            {newCarForm.brand && newCarForm.model ? 'اختيار هذه السيارة' : 'العودة'}
           </button>
         </div>
       </div>

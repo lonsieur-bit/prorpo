@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, MapPin, Plus, Navigation } from 'lucide-react';
+import { useApp } from '../context/AppContext';
 
 export default function BookingDetails() {
   const navigate = useNavigate();
+  const { user } = useApp();
   const [selectedLocation, setSelectedLocation] = useState('الرياض، حي شبرا 4231');
   const [selectedColors, setSelectedColors] = useState([0, 1, 2]);
   const [isLoadingLocation, setIsLoadingLocation] = useState(false);
@@ -101,6 +103,35 @@ export default function BookingDetails() {
               </button>
             </div>
             
+            {user.selectedCar ? (
+              <div className="bg-primary-50 border border-primary-200 rounded-lg p-4">
+                <div className="flex items-center gap-3">
+                  <Car size={20} className="text-primary-600" />
+                  <div className="flex-1">
+                    <p className="font-almarai font-bold text-primary-800">
+                      {user.selectedCar.brand} {user.selectedCar.model}
+                    </p>
+                    <p className="text-sm font-arabic-city text-primary-600">
+                      {user.selectedCar.year} • {user.selectedCar.color} • {user.selectedCar.plateNumber}
+                    </p>
+                  </div>
+                  <button 
+                    onClick={() => navigate('/car-selection')}
+                    className="text-primary-600 text-sm"
+                  >
+                    تغيير
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <button 
+                onClick={() => navigate('/car-selection')}
+                className="w-full bg-gray-50 border-2 border-dashed border-gray-300 rounded-lg p-4 text-center hover:border-primary-300 transition-colors"
+              >
+                <Car size={24} className="text-gray-400 mx-auto mb-2" />
+                <p className="text-gray-600 font-arabic-city">اختر سيارتك</p>
+              </button>
+            )}
           </div>
 
           <div className="mb-6">
