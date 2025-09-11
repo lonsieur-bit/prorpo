@@ -21,29 +21,29 @@ export default function HomeScreen() {
             
             {/* Overlay Buttons */}
             <div className="absolute top-4 left-0 right-0 px-4">
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between px-6">
                 {/* Left - Empty space for balance */}
                 <div className="w-20"></div>
 
                 {/* Center - Location Dropdown */}
                 <button 
                   onClick={() => navigate('/location')}
-                  className="flex items-center gap-2 bg-black/20 backdrop-blur-sm px-4 py-2 rounded-xl hover:bg-black/30 transition-all duration-300"
+                  className="flex items-center gap-2 bg-white/30 backdrop-blur-sm px-4 py-2 rounded-xl hover:bg-white/40 transition-all duration-300"
                 >
-                  <MapPin size={16} className="text-white" />
-                  <ChevronDown size={14} className="text-white" />
+                  <MapPin size={16} className="text-black" />
+                  <ChevronDown size={14} className="text-black" />
                   <div className="text-right">
-                    <p className="text-sm font-almarai font-medium text-white">hbh</p>
+                    <p className="text-sm font-almarai font-medium text-black">hbh</p>
                   </div>
                 </button>
 
                 {/* Right - Gifts Button */}
                 <button 
                   onClick={() => navigate('/gifts')}
-                  className="flex items-center gap-2 bg-black/20 backdrop-blur-sm px-3 py-2 rounded-xl hover:bg-black/30 transition-all duration-300"
+                  className="flex items-center gap-2 bg-white/30 backdrop-blur-sm px-3 py-2 rounded-xl hover:bg-white/40 transition-all duration-300"
                 >
-                  <Gift size={16} className="text-white" />
-                  <span className="text-sm font-almarai font-medium text-white">هدايا وعروض</span>
+                  <Gift size={16} className="text-black" />
+                  <span className="text-sm font-almarai font-medium text-black">هدايا وعروض</span>
                 </button>
               </div>
             </div>
