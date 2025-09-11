@@ -41,7 +41,7 @@ export default function PinVerification() {
         </div>
 
         <div className="flex-1">
-          <h1 className="text-2xl font-almarai font-bold text-gray-800 mb-2">أدخل PIN المكون من 5 أرقام والذي تم إرساله إلى رقم هاتفك</h1>
+          <h1 className="text-lg font-almarai font-bold text-gray-800 mb-2">أدخل PIN المكون من 5 أرقام والذي تم إرساله إلى رقم هاتفك</h1>
           
           <form onSubmit={handleSubmit} className="mt-8">
             <div className="flex justify-center gap-3 mb-8">

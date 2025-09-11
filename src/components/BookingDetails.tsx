@@ -62,7 +62,6 @@ export default function BookingDetails() {
           <button onClick={() => navigate('/home')}>
             <ArrowRight size={24} className="text-gray-600" />
           </button>
-          <h1 className="text-lg font-bold text-gray-800">تفاصيل الحجز</h1>
           <h1 className="text-lg font-almarai font-bold text-gray-800">تفاصيل الحجز</h1>
           <div></div>
         </div>
@@ -98,7 +97,7 @@ export default function BookingDetails() {
               <label className="block text-sm font-almarai font-medium text-gray-700">اختيار السيارة</label>
               <button className="flex items-center gap-1 text-primary-600 text-sm">
                 <Plus size={16} />
-                إضافة سيارة جديدة
+                <span onClick={() => navigate('/cars')}>إضافة سيارة جديدة</span>
               </button>
             </div>
             

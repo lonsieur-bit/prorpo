@@ -12,7 +12,6 @@ export default function OrderTracking() {
           <button onClick={() => navigate('/home')}>
             <ArrowRight size={24} className="text-gray-600" />
           </button>
-          <h1 className="text-lg font-bold text-gray-800">تفاصيل الطلب</h1>
           <h1 className="text-lg font-almarai font-bold text-gray-800">تفاصيل الطلب</h1>
           <div></div>
         </div>

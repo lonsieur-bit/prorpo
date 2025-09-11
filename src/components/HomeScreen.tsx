@@ -135,12 +135,30 @@ export default function HomeScreen() {
               <span className="text-xs text-blue-500 font-medium">الرئيسية</span>
             </button>
             <button className="flex flex-col items-center gap-1">
-              <ShoppingBag size={20} className="text-gray-400" />
-              <span className="text-xs text-gray-400">طلباتي</span>
+              <ShoppingBag 
+                size={20} 
+                className="text-gray-400" 
+                onClick={() => navigate('/orders')}
+              />
+              <span 
+                className="text-xs text-gray-400"
+                onClick={() => navigate('/orders')}
+              >
+                طلباتي
+              </span>
             </button>
             <button className="flex flex-col items-center gap-1">
-              <Gift size={20} className="text-gray-400" />
-              <span className="text-xs text-gray-400">هدايا</span>
+              <Gift 
+                size={20} 
+                className="text-gray-400"
+                onClick={() => navigate('/gifts')}
+              />
+              <span 
+                className="text-xs text-gray-400"
+                onClick={() => navigate('/gifts')}
+              >
+                هدايا
+              </span>
             </button>
             <button 
               onClick={() => navigate('/profile')}

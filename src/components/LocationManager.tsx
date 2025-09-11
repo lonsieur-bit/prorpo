@@ -123,7 +123,6 @@ export default function LocationManager() {
           <button onClick={() => navigate(-1)}>
             <ArrowRight size={24} className="text-gray-600" />
           </button>
-          <h1 className="text-lg font-bold text-gray-800">إدارة المواقع</h1>
           <h1 className="text-lg font-almarai font-bold text-gray-800">إدارة المواقع</h1>
           <button onClick={() => setShowAddForm(true)}>
             <Plus size={24} className="text-primary-600" />

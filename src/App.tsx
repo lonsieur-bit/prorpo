@@ -12,6 +12,9 @@ import PaymentMethod from './components/PaymentMethod';
 import OrderTracking from './components/OrderTracking';
 import UserProfile from './components/UserProfile';
 import LocationManager from './components/LocationManager';
+import CarManager from './components/CarManager';
+import GiftsPage from './components/GiftsPage';
+import OrdersPage from './components/OrdersPage';
 import { AppProvider } from './context/AppContext';
 
 function App() {
@@ -32,6 +35,9 @@ function App() {
             <Route path="/tracking" element={<OrderTracking />} />
             <Route path="/profile" element={<UserProfile />} />
             <Route path="/location" element={<LocationManager />} />
+            <Route path="/cars" element={<CarManager />} />
+            <Route path="/gifts" element={<GiftsPage />} />
+            <Route path="/orders" element={<OrdersPage />} />
           </Routes>
         </div>
       </Router>

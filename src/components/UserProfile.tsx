@@ -27,7 +27,6 @@ export default function UserProfile() {
               <User size={32} className="text-white" />
             </div>
             <div>
-              <h1 className="text-xl font-bold">{user.name}</h1>
               <h1 className="text-xl font-almarai font-bold">{user.name}</h1>
               <p className="text-white/80">{user.phone}</p>
             </div>

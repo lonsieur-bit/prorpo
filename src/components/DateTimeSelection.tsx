@@ -31,7 +31,7 @@ export default function DateTimeSelection() {
           <button onClick={() => navigate('/booking')}>
             <ArrowRight size={24} className="text-gray-600" />
           </button>
-          <h1 className="text-lg font-bold text-gray-800">تفاصيل الحجز</h1>
+          <h1 className="text-lg font-almarai font-bold text-gray-800">اختيار التاريخ والوقت</h1>
           <div></div>
         </div>
 

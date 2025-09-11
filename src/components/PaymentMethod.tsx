@@ -46,7 +46,6 @@ export default function PaymentMethod() {
           <button onClick={() => navigate('/address')}>
             <ArrowRight size={24} className="text-gray-600" />
           </button>
-          <h1 className="text-lg font-bold text-gray-800">الدفع</h1>
           <h1 className="text-lg font-almarai font-bold text-gray-800">الدفع</h1>
           <div></div>
         </div>
