@@ -47,7 +47,8 @@ export default function HomeScreen() {
                 />
               </div>
               <h2 className="text-xl font-bold text-gray-800 mb-2">كار سيرفيس</h2>
-              <p className="text-gray-600 text-sm">خدمة التنظيف الأول</p>
+              <h2 className="text-xl font-almarai font-bold text-gray-800 mb-2">كار سيرفيس</h2>
+              <p className="text-gray-600 text-sm font-arabic-city">خدمة التنظيف الأول</p>
             </div>
 
             {/* App Store Buttons */}
@@ -83,7 +84,7 @@ export default function HomeScreen() {
 
           {/* Services Section */}
           <div>
-            <h3 className="text-lg font-bold text-gray-800 mb-4 text-right">الخدمات</h3>
+            <h3 className="text-lg font-almarai font-bold text-gray-800 mb-4 text-right">الخدمات</h3>
             <div className="grid grid-cols-2 gap-4">
               {/* Service Card 1 */}
               <div className="bg-white rounded-xl p-4 shadow-sm">
@@ -96,7 +97,8 @@ export default function HomeScreen() {
                     />
                   </div>
                   <h4 className="font-bold text-gray-800 mb-1">غسيل سيارات 2</h4>
-                  <p className="text-xs text-gray-600 mb-3">حالة جديدة</p>
+                  <h4 className="font-almarai font-bold text-gray-800 mb-1">غسيل سيارات 2</h4>
+                  <p className="text-xs font-arabic-city text-gray-600 mb-3">حالة جديدة</p>
                 </div>
                 <button className="w-full bg-gradient-to-r from-blue-500 to-cyan-400 text-white text-sm py-2 rounded-lg">
                   تفاصيل
@@ -114,7 +116,8 @@ export default function HomeScreen() {
                     />
                   </div>
                   <h4 className="font-bold text-gray-800 mb-1">غسيل سيارات</h4>
-                  <p className="text-xs text-gray-600 mb-3">حالة جديدة</p>
+                  <h4 className="font-almarai font-bold text-gray-800 mb-1">غسيل سيارات</h4>
+                  <p className="text-xs font-arabic-city text-gray-600 mb-3">حالة جديدة</p>
                 </div>
                 <button className="w-full bg-gradient-to-r from-blue-500 to-cyan-400 text-white text-sm py-2 rounded-lg">
                   تفاصيل

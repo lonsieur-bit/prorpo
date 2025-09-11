@@ -34,7 +34,7 @@ export default function PhoneVerification() {
 
         {/* Content */}
         <div className="flex-1 px-6 pt-8">
-          <h1 className="text-xl font-medium text-gray-800 mb-8 text-right">
+          <h1 className="text-xl font-almarai font-bold text-gray-800 mb-8 text-right">
             أدخل رقم هاتفك للتحقق
           </h1>
           

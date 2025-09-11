@@ -66,10 +66,10 @@ export default function LocationPermission() {
 
           {/* Content */}
           <div className="flex-1 px-4">
-            <h1 className="text-lg font-medium text-gray-800 mb-2 text-right">
+            <h1 className="text-lg font-almarai font-bold text-gray-800 mb-2 text-right">
               اسمح لنا باستخدام موقعك
             </h1>
-            <p className="text-sm text-gray-600 mb-4 text-right leading-relaxed">
+            <p className="text-sm font-arabic-city text-gray-600 mb-4 text-right leading-relaxed">
               احتاج إلى معرفة موقعك الدقيق حتى نتمكن من إرسال خدمة غسيل السيارات إليك في الوقت المناسب
             </p>
 

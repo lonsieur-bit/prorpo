@@ -63,12 +63,13 @@ export default function BookingDetails() {
             <ArrowRight size={24} className="text-gray-600" />
           </button>
           <h1 className="text-lg font-bold text-gray-800">تفاصيل الحجز</h1>
+          <h1 className="text-lg font-almarai font-bold text-gray-800">تفاصيل الحجز</h1>
           <div></div>
         </div>
 
         <div className="flex-1 p-6 overflow-y-auto">
           <div className="mb-6">
-            <label className="block text-sm font-medium text-gray-700 mb-2">الموقع</label>
+            <label className="block text-sm font-almarai font-medium text-gray-700 mb-2">الموقع</label>
             <div className="relative">
               <button
                 type="text"
@@ -94,7 +95,7 @@ export default function BookingDetails() {
 
           <div className="mb-6">
             <div className="flex items-center justify-between mb-3">
-              <label className="block text-sm font-medium text-gray-700">اختيار السيارة</label>
+              <label className="block text-sm font-almarai font-medium text-gray-700">اختيار السيارة</label>
               <button className="flex items-center gap-1 text-primary-600 text-sm">
                 <Plus size={16} />
                 إضافة سيارة جديدة
@@ -111,7 +112,7 @@ export default function BookingDetails() {
           </div>
 
           <div className="mb-6">
-            <label className="block text-sm font-medium text-gray-700 mb-3">اللون</label>
+            <label className="block text-sm font-almarai font-medium text-gray-700 mb-3">اللون</label>
             <div className="flex gap-2 flex-wrap">
               {colors.map((color, index) => (
                 <button
@@ -135,7 +136,7 @@ export default function BookingDetails() {
           </div>
 
           <div className="mb-6">
-            <label className="block text-sm font-medium text-gray-700 mb-2">اللوحة</label>
+            <label className="block text-sm font-almarai font-medium text-gray-700 mb-2">اللوحة</label>
             <input
               type="text"
               className="input-field"
@@ -144,7 +145,7 @@ export default function BookingDetails() {
           </div>
 
           <div className="mb-6">
-            <label className="block text-sm font-medium text-gray-700 mb-2">ماركة السيارة</label>
+            <label className="block text-sm font-almarai font-medium text-gray-700 mb-2">ماركة السيارة</label>
             <div className="bg-gray-50 p-4 rounded-lg">
               <button className="w-full text-right text-gray-600">البحث... ✕</button>
             </div>

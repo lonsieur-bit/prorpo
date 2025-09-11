@@ -38,7 +38,7 @@ export default function DateTimeSelection() {
         <div className="flex-1 p-6 overflow-y-auto">
           <div className="mb-6">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-lg font-bold text-gray-800">التاريخ</h2>
+              <h2 className="text-lg font-almarai font-bold text-gray-800">التاريخ</h2>
               <div className="flex items-center gap-2">
                 <ChevronRight size={20} className="text-gray-400" />
                 <span className="text-sm text-gray-600">مارس 2024</span>
@@ -77,10 +77,10 @@ export default function DateTimeSelection() {
           </div>
 
           <div className="mb-6">
-            <h2 className="text-lg font-bold text-gray-800 mb-4">الساعات المتاحة</h2>
+            <h2 className="text-lg font-almarai font-bold text-gray-800 mb-4">الساعات المتاحة</h2>
             
             <div className="mb-4">
-              <h3 className="text-sm font-medium text-gray-700 mb-2">صباحاً</h3>
+              <h3 className="text-sm font-almarai font-medium text-gray-700 mb-2">صباحاً</h3>
               <div className="grid grid-cols-4 gap-2">
                 {morningTimes.map((time) => (
                   <button
@@ -99,7 +99,7 @@ export default function DateTimeSelection() {
             </div>
 
             <div>
-              <h3 className="text-sm font-medium text-gray-700 mb-2">مساءً</h3>
+              <h3 className="text-sm font-almarai font-medium text-gray-700 mb-2">مساءً</h3>
               <div className="grid grid-cols-4 gap-2">
                 {eveningTimes.map((time) => (
                   <button
@@ -119,7 +119,7 @@ export default function DateTimeSelection() {
           </div>
 
           <div className="mb-6">
-            <h2 className="text-lg font-bold text-gray-800 mb-4">الخدمات الإضافية</h2>
+            <h2 className="text-lg font-almarai font-bold text-gray-800 mb-4">الخدمات الإضافية</h2>
             <div className="grid grid-cols-2 gap-3">
               {/* Service 1 - Cleaning (Bucket) */}
               <div className="bg-white border border-gray-200 rounded-xl p-4 text-center">
@@ -127,7 +127,8 @@ export default function DateTimeSelection() {
                   <div className="w-6 h-6 bg-primary-600 rounded-sm"></div>
                 </div>
                 <h3 className="font-medium text-gray-800 mb-1">تنظيف (شامل)</h3>
-                <p className="text-xs text-gray-500 mb-3">25 ر.س</p>
+                <h3 className="font-almarai font-medium text-gray-800 mb-1">تنظيف (شامل)</h3>
+                <p className="text-xs font-arabic-city text-gray-500 mb-3">25 ر.س</p>
                 <button className="w-full bg-primary-600 text-white py-2 px-3 rounded-lg text-sm hover:bg-primary-700 transition-colors">
                   متاحة
                 </button>
@@ -139,7 +140,8 @@ export default function DateTimeSelection() {
                   <div className="w-4 h-6 bg-orange-500 rounded-sm"></div>
                 </div>
                 <h3 className="font-medium text-gray-800 mb-1">شمع</h3>
-                <p className="text-xs text-gray-500 mb-3">15 ر.س</p>
+                <h3 className="font-almarai font-medium text-gray-800 mb-1">شمع</h3>
+                <p className="text-xs font-arabic-city text-gray-500 mb-3">15 ر.س</p>
                 <button className="w-full bg-orange-500 text-white py-2 px-3 rounded-lg text-sm hover:bg-orange-600 transition-colors">
                   متاحة
                 </button>
@@ -151,7 +153,8 @@ export default function DateTimeSelection() {
                   <div className="w-6 h-4 bg-gray-600 rounded-sm"></div>
                 </div>
                 <h3 className="font-medium text-gray-800 mb-1">تنظيف داخلي</h3>
-                <p className="text-xs text-gray-500 mb-3">30 ر.س</p>
+                <h3 className="font-almarai font-medium text-gray-800 mb-1">تنظيف داخلي</h3>
+                <p className="text-xs font-arabic-city text-gray-500 mb-3">30 ر.س</p>
                 <button className="w-full bg-gray-600 text-white py-2 px-3 rounded-lg text-sm hover:bg-gray-700 transition-colors">
                   متاحة
                 </button>
@@ -163,7 +166,8 @@ export default function DateTimeSelection() {
                   <div className="w-4 h-6 bg-orange-500 rounded-sm"></div>
                 </div>
                 <h3 className="font-medium text-gray-800 mb-1">ملمع</h3>
-                <p className="text-xs text-gray-500 mb-3">20 ر.س</p>
+                <h3 className="font-almarai font-medium text-gray-800 mb-1">ملمع</h3>
+                <p className="text-xs font-arabic-city text-gray-500 mb-3">20 ر.س</p>
                 <button className="w-full bg-orange-500 text-white py-2 px-3 rounded-lg text-sm hover:bg-orange-600 transition-colors">
                   متاحة
                 </button>
@@ -184,8 +188,8 @@ export default function DateTimeSelection() {
                 />
               </div>
               <div>
-                <p className="text-sm opacity-90">إجمالي المبلغ</p>
-                <p className="text-2xl font-bold">74.44 ر.س</p>
+                <p className="text-sm font-arabic-city opacity-90">إجمالي المبلغ</p>
+                <p className="text-2xl font-almarai font-bold">74.44 ر.س</p>
               </div>
             </div>
             <button 

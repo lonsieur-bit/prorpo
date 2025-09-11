@@ -37,5 +37,7 @@ export default {
       }
     },
   },
-  plugins: [],
+      arabic: ['Noto Sans Arabic', 'system-ui', 'sans-serif'],
+      almarai: ['Almarai', 'Noto Sans Arabic', 'system-ui', 'sans-serif'],
+      'arabic-city': ['Noto Sans Arabic', 'system-ui', 'sans-serif']
 }
