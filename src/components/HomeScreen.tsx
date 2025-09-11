@@ -10,95 +10,72 @@ export default function HomeScreen() {
   return (
     <div className="screen-container">
       <div className="flex flex-col h-full bg-gray-50">
-        {/* Header */}
-        <div className="bg-white p-4 shadow-sm">
-          <div className="flex items-center justify-between">
-            {/* Empty space for balance */}
-            <div className="w-10"></div>
-
-            {/* Location Dropdown */}
-            <button 
-              onClick={() => navigate('/location')}
-              className="flex items-center gap-2 bg-gray-100 px-3 py-2 rounded-lg hover:bg-gray-200 transition-colors"
-            >
-              <ChevronDown size={16} className="text-gray-600" />
-              <div className="text-right">
-                <p className="text-sm font-almarai font-bold text-gray-800">الموقع</p>
-                <p className="text-xs font-arabic-city text-gray-500">{user.currentAddress || 'الرياض، ح. شارع 4231'}</p>
-              </div>
-              <MapPin size={18} className="text-gray-600" />
-            </button>
-
-            {/* Gifts Button */}
-            <button 
-              onClick={() => navigate('/gifts')}
-              className="flex flex-col items-center gap-1"
-            >
-              <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
-                <Gift size={16} className="text-orange-600" />
-              </div>
-              <span className="text-xs font-arabic-city text-gray-600">هدايا وعروض</span>
-            </button>
-          </div>
-        </div>
-
-        <div className="flex-1 p-4 space-y-6">
-          {/* Banner Image */}
-          <div className="bg-white rounded-2xl overflow-hidden shadow-sm">
+        <div className="flex-1 relative">
+          {/* Banner Image with Overlay Header */}
+          <div className="relative">
             <img 
               src="/لون[1].pdf.png" 
               alt="عروض الإطارات" 
-              className="w-full h-48 object-cover"
+              className="w-full h-64 object-cover"
             />
+            
+            {/* Transparent Header Overlay */}
+            <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-black/30 via-black/10 to-transparent p-4 pt-12">
+              <div className="flex items-center justify-between">
+                {/* Empty space for balance */}
+                <div className="w-16"></div>
+
+                {/* Location Dropdown */}
+                <button 
+                  onClick={() => navigate('/location')}
+                  className="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-3 rounded-xl shadow-lg hover:bg-white transition-all"
+                >
+                  <ChevronDown size={16} className="text-primary-600" />
+                  <div className="text-right">
+                    <p className="text-sm font-almarai font-bold text-gray-800">الموقع</p>
+                    <p className="text-xs font-arabic-city text-gray-600">{user.currentAddress || 'الرياض، ح. شارع 4231'}</p>
+                  </div>
+                  <MapPin size={20} className="text-primary-600" />
+                </button>
+
+                {/* Gifts Button */}
+                <button 
+                  onClick={() => navigate('/gifts')}
+                  className="flex flex-col items-center gap-1 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-xl shadow-lg hover:bg-white transition-all"
+                >
+                  <div className="w-8 h-8 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full flex items-center justify-center">
+                    <Gift size={16} className="text-white" />
+                  </div>
+                  <span className="text-xs font-arabic-city text-gray-700 font-medium">هدايا وعروض</span>
+                </button>
+              </div>
+            </div>
           </div>
 
-          {/* Main Service Card */}
-          <div className="bg-white rounded-2xl p-6 shadow-sm">
-            <div className="text-center mb-6">
-              <div className="flex items-center justify-center mb-4">
-                <img 
-                  src="/شعار نشمي.pdf (3).png" 
-                  alt="شعار نشمي" 
-                  className="w-16 h-16 object-contain"
-                />
-              </div>
-              <h2 className="text-xl font-almarai font-bold text-gray-800 mb-2">كار سيرفيس</h2>
-              <p className="text-gray-600 text-sm font-arabic-city">خدمة التنظيف الأول</p>
-            </div>
-
-            {/* App Store Buttons */}
-            <div className="flex gap-3 mb-6">
-              <div className="flex-1 border border-gray-200 rounded-lg p-3 text-center">
-                <div className="text-xs text-gray-600 mb-1">متوفر على</div>
-                <div className="text-sm font-medium text-gray-800">Google Play</div>
-              </div>
-              <div className="flex-1 border border-gray-200 rounded-lg p-3 text-center">
-                <div className="text-xs text-gray-600 mb-1">متوفر على</div>
-                <div className="text-sm font-medium text-gray-800">App Store</div>
-              </div>
-            </div>
-
+          {/* Content */}
+          <div className="p-4 space-y-6">
             {/* Offer Banner */}
-            <div className="bg-gradient-to-r from-orange-400 to-red-500 rounded-xl p-4 text-white text-center mb-4">
-              <p className="text-sm font-medium">3 غسلات بسعر 399 ريال فقط</p>
+            <div className="bg-gradient-to-r from-orange-400 to-red-500 rounded-xl p-4 text-white text-center shadow-lg">
+              <p className="text-lg font-almarai font-bold mb-1">عرض خاص</p>
+              <p className="text-sm font-arabic-city">3 غسلات بسعر 399 ريال فقط</p>
             </div>
 
             {/* Book Button */}
             <button 
               onClick={() => navigate('/booking')}
-              className="w-full bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-medium py-3 px-6 rounded-xl flex items-center justify-center gap-3"
+              className="w-full bg-gradient-to-r from-primary-600 to-secondary-500 text-white font-almarai font-bold py-4 px-6 rounded-xl flex items-center justify-center gap-3 shadow-lg hover:shadow-xl transition-all"
             >
-              الذهاب إلى الحجز
+              احجز خدمتك الآن
               <img 
                 src="/شعار نشمي.pdf (3).png" 
                 alt="شعار نشمي" 
-                className="w-5 h-5 object-contain"
+                className="w-6 h-6 object-contain filter brightness-0 invert"
               />
             </button>
           </div>
 
           {/* Services Section */}
-          <div>
+          <div className="px-4 pb-4">
             <h3 className="text-lg font-almarai font-bold text-gray-800 mb-4 text-right">الخدمات</h3>
             <div className="grid grid-cols-2 gap-4">
               {/* Service Card 1 */}
@@ -114,7 +91,7 @@ export default function HomeScreen() {
                   <h4 className="font-almarai font-bold text-gray-800 mb-1">غسيل سيارات 2</h4>
                   <p className="text-xs font-arabic-city text-gray-600 mb-3">حالة جديدة</p>
                 </div>
-                <button className="w-full bg-gradient-to-r from-blue-500 to-cyan-400 text-white text-sm py-2 rounded-lg">
+                <button className="w-full bg-gradient-to-r from-primary-600 to-secondary-500 text-white text-sm py-2 rounded-lg">
                   تفاصيل
                 </button>
               </div>
@@ -132,7 +109,7 @@ export default function HomeScreen() {
                   <h4 className="font-almarai font-bold text-gray-800 mb-1">غسيل سيارات</h4>
                   <p className="text-xs font-arabic-city text-gray-600 mb-3">حالة جديدة</p>
                 </div>
-                <button className="w-full bg-gradient-to-r from-blue-500 to-cyan-400 text-white text-sm py-2 rounded-lg">
+                <button className="w-full bg-gradient-to-r from-primary-600 to-secondary-500 text-white text-sm py-2 rounded-lg">
                   تفاصيل
                 </button>
               </div>
