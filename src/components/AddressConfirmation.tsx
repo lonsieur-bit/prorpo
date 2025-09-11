@@ -62,6 +62,7 @@ export default function AddressConfirmation() {
             <ArrowRight size={24} className="text-gray-600" />
           </button>
           <h1 className="text-lg font-bold text-gray-800">تأكيد العنوان</h1>
+          <h1 className="text-lg font-almarai font-bold text-gray-800">تأكيد العنوان</h1>
           <div></div>
         </div>
 
@@ -103,7 +104,7 @@ export default function AddressConfirmation() {
             </div>
 
             <div className="mb-6">
-              <h2 className="text-lg font-bold text-gray-800 mb-4">تفاصيل العنوان</h2>
+              <h2 className="text-lg font-almarai font-bold text-gray-800 mb-4">تفاصيل العنوان</h2>
               
               <div className="space-y-3">
                 {addresses.map((address) => (

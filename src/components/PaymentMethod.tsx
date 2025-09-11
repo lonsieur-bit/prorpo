@@ -22,6 +22,7 @@ export default function PaymentMethod() {
             <CheckCircle2 size={64} className="text-green-600" />
           </div>
           <h1 className="text-2xl font-bold text-gray-800 mb-2">تم الدفع بنجاح</h1>
+          <h1 className="text-2xl font-almarai font-bold text-gray-800 mb-2">تم الدفع بنجاح</h1>
           <p className="text-gray-600 mb-8">
             تم تسجيل الطلب وسيتم إرسال فني التنظيف إليك
           </p>
@@ -46,12 +47,13 @@ export default function PaymentMethod() {
             <ArrowRight size={24} className="text-gray-600" />
           </button>
           <h1 className="text-lg font-bold text-gray-800">الدفع</h1>
+          <h1 className="text-lg font-almarai font-bold text-gray-800">الدفع</h1>
           <div></div>
         </div>
 
         <div className="flex-1 p-6 overflow-y-auto">
           <div className="mb-6">
-            <h2 className="text-lg font-bold text-gray-800 mb-4">اختر طريقة الدفع</h2>
+            <h2 className="text-lg font-almarai font-bold text-gray-800 mb-4">اختر طريقة الدفع</h2>
             
             <div className="space-y-3">
               <div className="border border-gray-200 rounded-lg p-4">
@@ -115,7 +117,7 @@ export default function PaymentMethod() {
           </div>
 
           <div className="mb-6">
-            <h2 className="text-lg font-bold text-gray-800 mb-4">ملخص الطلب</h2>
+            <h2 className="text-lg font-almarai font-bold text-gray-800 mb-4">ملخص الطلب</h2>
             <div className="bg-gray-50 rounded-lg p-4 space-y-3">
               <div className="flex justify-between">
                 <span className="text-gray-600">الخدمة</span>

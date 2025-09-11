@@ -13,6 +13,7 @@ export default function OrderTracking() {
             <ArrowRight size={24} className="text-gray-600" />
           </button>
           <h1 className="text-lg font-bold text-gray-800">تفاصيل الطلب</h1>
+          <h1 className="text-lg font-almarai font-bold text-gray-800">تفاصيل الطلب</h1>
           <div></div>
         </div>
 
@@ -34,7 +35,7 @@ export default function OrderTracking() {
           <div className="px-6">
             <div className="card mb-6">
               <div className="flex items-center justify-between mb-4">
-                <h2 className="text-lg font-bold text-gray-800">سائق التوصيل</h2>
+                <h2 className="text-lg font-almarai font-bold text-gray-800">سائق التوصيل</h2>
                 <div className="flex items-center gap-1">
                   {[1,2,3,4,5].map((star) => (
                     <Star key={star} size={16} className="fill-yellow-400 text-yellow-400" />
@@ -58,7 +59,7 @@ export default function OrderTracking() {
             </div>
 
             <div className="card mb-6">
-              <h2 className="text-lg font-bold text-gray-800 mb-4">تفاصيل الطلب</h2>
+              <h2 className="text-lg font-almarai font-bold text-gray-800 mb-4">تفاصيل الطلب</h2>
               
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
@@ -90,7 +91,7 @@ export default function OrderTracking() {
             </div>
 
             <div className="card mb-6">
-              <h2 className="text-lg font-bold text-gray-800 mb-4">تفاصيل الطلب</h2>
+              <h2 className="text-lg font-almarai font-bold text-gray-800 mb-4">تفاصيل الطلب</h2>
               
               <div className="space-y-3">
                 <div className="flex justify-between">

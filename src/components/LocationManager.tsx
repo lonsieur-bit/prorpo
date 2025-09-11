@@ -124,6 +124,7 @@ export default function LocationManager() {
             <ArrowRight size={24} className="text-gray-600" />
           </button>
           <h1 className="text-lg font-bold text-gray-800">إدارة المواقع</h1>
+          <h1 className="text-lg font-almarai font-bold text-gray-800">إدارة المواقع</h1>
           <button onClick={() => setShowAddForm(true)}>
             <Plus size={24} className="text-primary-600" />
           </button>
@@ -173,7 +174,7 @@ export default function LocationManager() {
 
           {/* Saved Addresses */}
           <div className="p-6">
-            <h2 className="text-lg font-bold text-gray-800 mb-4">العناوين المحفوظة</h2>
+            <h2 className="text-lg font-almarai font-bold text-gray-800 mb-4">العناوين المحفوظة</h2>
             
             <div className="space-y-3">
               {savedAddresses.map((address) => {
@@ -222,7 +223,7 @@ export default function LocationManager() {
           <div className="absolute inset-0 bg-black/50 flex items-end">
             <div className="bg-white w-full rounded-t-2xl p-6">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-bold text-gray-800">إضافة عنوان جديد</h3>
+                <h3 className="text-lg font-almarai font-bold text-gray-800">إضافة عنوان جديد</h3>
                 <button onClick={() => setShowAddForm(false)}>
                   <ArrowRight size={24} className="text-gray-600" />
                 </button>

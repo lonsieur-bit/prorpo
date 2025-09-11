@@ -28,6 +28,7 @@ export default function UserProfile() {
             </div>
             <div>
               <h1 className="text-xl font-bold">{user.name}</h1>
+              <h1 className="text-xl font-almarai font-bold">{user.name}</h1>
               <p className="text-white/80">{user.phone}</p>
             </div>
           </div>
@@ -48,7 +49,7 @@ export default function UserProfile() {
           </div>
 
           <div className="mt-8 bg-gray-50 rounded-lg p-4">
-            <h2 className="text-lg font-bold text-gray-800 mb-4">الدعم والمساعدة</h2>
+            <h2 className="text-lg font-almarai font-bold text-gray-800 mb-4">الدعم والمساعدة</h2>
             
             <div className="bg-primary-100 rounded-lg p-4 mb-4">
               <div className="flex items-center justify-between mb-2">
