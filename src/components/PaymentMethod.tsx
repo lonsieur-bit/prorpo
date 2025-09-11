@@ -1,15 +1,24 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowRight, CreditCard, Plus, Calendar, MapPin, Car, Clock, Star } from 'lucide-react';
+import { ArrowRight, CreditCard, Plus, Calendar, MapPin, Car, Clock, Star, X } from 'lucide-react';
 
 export default function PaymentMethod() {
   const navigate = useNavigate();
   const [selectedPayment, setSelectedPayment] = useState('card1');
+  const [selectedNote, setSelectedNote] = useState('excellent');
+  const [showPromoPopup, setShowPromoPopup] = useState(false);
+  const [promoCode, setPromoCode] = useState('');
+  const [selectedPromoType, setSelectedPromoType] = useState('');
 
   const handleSubmit = () => {
     navigate('/tracking');
   };
 
+  const handlePromoSubmit = () => {
+    // Handle promo code submission
+    console.log('Promo code:', promoCode, 'Type:', selectedPromoType);
+    setShowPromoPopup(false);
+  };
 
   return (
     <div className="screen-container bg-gray-50">
@@ -91,32 +100,56 @@ export default function PaymentMethod() {
             
             <div className="grid grid-cols-3 gap-3 mb-4">
               {/* Home Delivery */}
-              <div className="bg-primary-50 border-2 border-primary-400 rounded-xl p-3 text-center">
+              <button 
+                onClick={() => setSelectedNote('fast')}
+                className={`rounded-xl p-3 text-center border-2 transition-all ${
+                  selectedNote === 'fast' 
+                    ? 'bg-primary-50 border-primary-400' 
+                    : 'bg-gray-50 border-gray-200 hover:border-primary-300'
+                }`}
+              >
                 <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-2">
                   <Clock size={20} className="text-primary-600" />
                 </div>
                 <p className="text-xs font-almarai text-primary-700">سريع</p>
-              </div>
+              </button>
 
               {/* External Wash */}
-              <div className="bg-primary-50 border-2 border-primary-400 rounded-xl p-3 text-center">
+              <button 
+                onClick={() => setSelectedNote('precise')}
+                className={`rounded-xl p-3 text-center border-2 transition-all ${
+                  selectedNote === 'precise' 
+                    ? 'bg-primary-50 border-primary-400' 
+                    : 'bg-gray-50 border-gray-200 hover:border-primary-300'
+                }`}
+              >
                 <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-2">
                   <MapPin size={20} className="text-primary-600" />
                 </div>
                 <p className="text-xs font-almarai text-primary-700">دقيق</p>
-              </div>
+              </button>
 
               {/* Complete Service - Selected */}
-              <div className="bg-primary-50 border-2 border-primary-400 rounded-xl p-3 text-center">
+              <button 
+                onClick={() => setSelectedNote('excellent')}
+                className={`rounded-xl p-3 text-center border-2 transition-all ${
+                  selectedNote === 'excellent' 
+                    ? 'bg-primary-50 border-primary-400' 
+                    : 'bg-gray-50 border-gray-200 hover:border-primary-300'
+                }`}
+              >
                 <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-2">
                   <Star size={20} className="text-primary-600" />
                 </div>
                 <p className="text-xs font-almarai text-primary-700">ممتاز</p>
-              </div>
+              </button>
             </div>
 
             {/* Add Promo Code Button */}
-            <button className="w-full flex items-center justify-center gap-2 bg-gray-50 border border-gray-200 rounded-lg p-3 text-gray-600 hover:bg-gray-100 transition-colors">
+            <button 
+              onClick={() => setShowPromoPopup(true)}
+              className="w-full flex items-center justify-center gap-2 bg-gray-50 border border-gray-200 rounded-lg p-3 text-gray-600 hover:bg-gray-100 transition-colors"
+            >
               <Plus size={16} className="text-gray-600" />
               <span className="font-almarai text-gray-700">إضافة الرمز الترويجي</span>
             </button>
@@ -158,6 +191,66 @@ export default function PaymentMethod() {
             تأكيد
           </button>
         </div>
+
+        {/* Promo Code Popup */}
+        {showPromoPopup && (
+          <div className="absolute inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+            <div className="bg-white rounded-2xl p-6 w-full max-w-sm">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-lg font-almarai font-bold text-gray-800">إضافة رمز ترويجي</h3>
+                <button 
+                  onClick={() => setShowPromoPopup(false)}
+                  className="p-1 hover:bg-gray-100 rounded-full"
+                >
+                  <X size={20} className="text-gray-600" />
+                </button>
+              </div>
+              
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-sm font-almarai font-medium text-gray-700 mb-2">نوع الرمز</label>
+                  <select
+                    value={selectedPromoType}
+                    onChange={(e) => setSelectedPromoType(e.target.value)}
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                  >
+                    <option value="">اختر نوع الرمز</option>
+                    <option value="discount">رمز خصم</option>
+                    <option value="gift">رمز هدية</option>
+                    <option value="cashback">رمز استرداد نقدي</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-almarai font-medium text-gray-700 mb-2">الرمز الترويجي</label>
+                  <input
+                    type="text"
+                    value={promoCode}
+                    onChange={(e) => setPromoCode(e.target.value)}
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                    placeholder="أدخل الرمز الترويجي"
+                  />
+                </div>
+                
+                <div className="flex gap-3">
+                  <button
+                    onClick={handlePromoSubmit}
+                    disabled={!promoCode || !selectedPromoType}
+                    className="flex-1 bg-primary-600 text-white font-almarai font-medium py-3 px-4 rounded-lg hover:bg-primary-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
+                  >
+                    تطبيق
+                  </button>
+                  <button
+                    onClick={() => setShowPromoPopup(false)}
+                    className="flex-1 bg-gray-100 text-gray-700 font-almarai font-medium py-3 px-4 rounded-lg hover:bg-gray-200 transition-colors"
+                  >
+                    إلغاء
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
