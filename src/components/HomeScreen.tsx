@@ -24,8 +24,17 @@ export default function HomeScreen() {
               <div className="flex items-center justify-between px-6">
                 {/* Left - Empty space for balance */}
                 <div className="w-20"></div>
+              <div className="flex items-center justify-between">
+                {/* Left - Gifts Button */}
+                <button 
+                  onClick={() => navigate('/gifts')}
+                  className="flex items-center gap-2 bg-white/30 backdrop-blur-sm px-4 py-2 rounded-xl hover:bg-white/40 transition-all duration-300"
+                >
+                  <Gift size={16} className="text-black" />
+                  <span className="text-sm font-almarai font-medium text-black">هدايا وعروض</span>
+                </button>
 
-                {/* Center - Location Dropdown */}
+                {/* Right - Location Dropdown */}
                 <button 
                   onClick={() => navigate('/location')}
                   className="flex items-center gap-2 bg-white/30 backdrop-blur-sm px-4 py-2 rounded-xl hover:bg-white/40 transition-all duration-300"
@@ -35,15 +44,6 @@ export default function HomeScreen() {
                   <div className="text-right">
                     <p className="text-sm font-almarai font-medium text-black">hbh</p>
                   </div>
-                </button>
-
-                {/* Right - Gifts Button */}
-                <button 
-                  onClick={() => navigate('/gifts')}
-                  className="flex items-center gap-2 bg-white/30 backdrop-blur-sm px-3 py-2 rounded-xl hover:bg-white/40 transition-all duration-300"
-                >
-                  <Gift size={16} className="text-black" />
-                  <span className="text-sm font-almarai font-medium text-black">هدايا وعروض</span>
                 </button>
               </div>
             </div>
@@ -152,5 +152,5 @@ export default function HomeScreen() {
         </div>
       </div>
     </div>
-  );
+  )
 }
