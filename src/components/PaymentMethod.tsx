@@ -85,20 +85,19 @@ export default function PaymentMethod() {
             </div>
           </div>
 
-          {/* Cancellation Notice */}
+          {/* Promo Code */}
           <div className="bg-primary-600 text-white p-4 mx-4 mt-4 rounded-lg">
-            <div className="flex items-center gap-2 mb-2">
-              <span className="text-white">✕</span>
+            <div className="flex items-center justify-between mb-2">
               <span className="font-almarai font-medium">الإلغاء عدم الإنتظار</span>
+              <span className="text-white">✕</span>
             </div>
-            <p className="text-xs font-arabic-city text-white/90">الرمز الترويجي</p>
+            <p className="text-xs font-almarai text-white/90">الرمز الترويجي</p>
           </div>
 
-          {/* Promo Code */}
           <div className="p-4">
-            <div className="bg-white border border-gray-200 rounded-lg p-3">
+            <div className="bg-white border border-gray-200 rounded-lg p-4">
               <div className="flex items-center justify-between">
-                <span className="font-arabic-city text-gray-600">F50</span>
+                <span className="font-almarai text-gray-600">F50</span>
                 <div className="w-4 h-4 border-2 border-primary-600 rounded bg-primary-600 flex items-center justify-center">
                   <span className="text-white text-xs">✓</span>
                 </div>
@@ -112,21 +111,21 @@ export default function PaymentMethod() {
             
             <div className="space-y-3">
               <div className="flex justify-between items-center">
-                <span className="text-sm font-arabic-city text-gray-600">غسيل</span>
+                <span className="text-sm font-almarai text-gray-600">غسيل</span>
                 <span className="font-almarai text-gray-800">1</span>
                 <span className="font-almarai text-gray-800">ر.س 233</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-sm font-arabic-city text-gray-600">خدمات إضافية</span>
+                <span className="text-sm font-almarai text-gray-600">خدمات إضافية</span>
                 <span className="font-almarai text-gray-800">2</span>
                 <span className="font-almarai text-gray-800">ر.س 28</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-sm font-arabic-city text-gray-600">المبلغ قبل الضريبة</span>
+                <span className="text-sm font-almarai text-gray-600">المبلغ قبل الضريبة</span>
                 <span className="font-almarai text-gray-800">ر.س 123</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-sm font-arabic-city text-gray-600">ضريبة القيمة المضافة</span>
+                <span className="text-sm font-almarai text-gray-600">ضريبة القيمة المضافة</span>
                 <span className="font-almarai text-gray-800">ر.س 3</span>
               </div>
             </div>
