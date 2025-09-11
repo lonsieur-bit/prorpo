@@ -1,48 +1,15 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowRight, CreditCard, Plus, CheckCircle2, Calendar, MapPin, Car, Clock } from 'lucide-react';
+import { ArrowRight, CreditCard, Plus, Calendar, MapPin, Car, Clock } from 'lucide-react';
 
 export default function PaymentMethod() {
   const navigate = useNavigate();
   const [selectedPayment, setSelectedPayment] = useState('card1');
-  const [showSuccess, setShowSuccess] = useState(false);
 
   const handleSubmit = () => {
-    setShowSuccess(true);
-    setTimeout(() => {
-      navigate('/tracking');
-    }, 2000);
+    navigate('/tracking');
   };
 
-  if (showSuccess) {
-    return (
-      <div className="screen-container">
-        <div className="flex flex-col items-center justify-center h-full p-6 text-center bg-gray-100">
-          <div className="bg-white rounded-2xl p-8 shadow-lg max-w-sm w-full">
-            <div className="bg-primary-100 p-6 rounded-full mb-6 mx-auto w-20 h-20 flex items-center justify-center">
-              <CheckCircle2 size={40} className="text-primary-600" />
-            </div>
-            <h1 className="text-xl font-almarai font-bold text-gray-800 mb-3">تم الدفع بنجاح</h1>
-            <p className="text-gray-600 font-arabic-city mb-6 leading-relaxed">
-              تم الدفع بنجاح وتأكيد الموعد
-            </p>
-            <button 
-              onClick={() => navigate('/tracking')}
-              className="w-full bg-primary-600 text-white font-almarai font-bold py-3 px-6 rounded-xl hover:bg-primary-700 transition-colors mb-3"
-            >
-              عرض تفاصيل الطلب
-            </button>
-            <button 
-              onClick={() => navigate('/home')}
-              className="w-full text-primary-600 font-almarai font-medium py-2 px-6 hover:bg-primary-50 transition-colors"
-            >
-              العودة إلى الرئيسية
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="screen-container bg-gray-50">
