@@ -5,9 +5,6 @@ import { useApp } from '../context/AppContext';
 
 export default function BookingDetails() {
   const navigate = useNavigate();
-  const { user } = useApp();
-  const [selectedLocation, setSelectedLocation] = useState('الرياض، حي شبرا 4231');
-  const [isLoadingLocation, setIsLoadingLocation] = useState(false);
 
   const getCurrentLocation = () => {
     setIsLoadingLocation(true);
