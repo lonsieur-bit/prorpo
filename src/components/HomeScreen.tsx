@@ -15,30 +15,28 @@ export default function HomeScreen() {
           <div className="bg-white border-b border-gray-200 shadow-sm">
             <div className="max-w-sm mx-auto px-4 py-3">
               <div className="flex items-center justify-between">
-                {/* Left - Store/Menu Button */}
-                <button className="flex items-center gap-2 bg-gray-100 px-3 py-2 rounded-xl">
-                  <span className="text-sm font-almarai font-medium text-gray-700">متجر ولاء</span>
-                  <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
-                </button>
+                {/* Left - Empty space for balance */}
+                <div className="w-20"></div>
 
-                {/* Location Dropdown */}
+                {/* Center - Location Dropdown */}
                 <button 
                   onClick={() => navigate('/location')}
-                  className="flex items-center gap-2 bg-gray-100 px-3 py-2 rounded-xl"
+                  className="flex items-center gap-2 bg-white/20 backdrop-blur-md border border-white/30 px-4 py-2 rounded-xl shadow-lg hover:bg-white/30 transition-all duration-300"
                 >
+                  <MapPin size={16} className="text-gray-700" />
                   <ChevronDown size={14} className="text-gray-600" />
                   <div className="text-right">
-                    <p className="text-xs font-almarai font-medium text-gray-700">hbh</p>
+                    <p className="text-xs font-almarai font-medium text-gray-800">hbh</p>
                   </div>
                 </button>
 
-                {/* Right - Gifts Button */}
+                {/* Right - Gifts Button with glassmorphism */}
                 <button 
                   onClick={() => navigate('/gifts')}
-                  className="flex items-center gap-2 bg-yellow-400 px-3 py-2 rounded-xl"
+                  className="flex flex-col items-center gap-1 bg-white/20 backdrop-blur-md border border-white/30 px-3 py-2 rounded-xl shadow-lg hover:bg-white/30 transition-all duration-300"
                 >
-                  <span className="text-sm font-almarai font-medium text-gray-800">هدايا وعروض</span>
-                  <Gift size={16} className="text-gray-800" />
+                  <Gift size={16} className="text-gray-700" />
+                  <span className="text-xs font-almarai font-medium text-gray-800">هدايا وعروض</span>
                 </button>
               </div>
             </div>
