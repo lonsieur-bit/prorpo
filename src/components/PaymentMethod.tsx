@@ -8,7 +8,7 @@ export default function PaymentMethod() {
   const [selectedNote, setSelectedNote] = useState('excellent');
   const [showPromoPopup, setShowPromoPopup] = useState(false);
   const [promoCode, setPromoCode] = useState('');
-  const [selectedPromoType, setSelectedPromoType] = useState('');
+  const [appliedPromoCode, setAppliedPromoCode] = useState('');
 
   const handleSubmit = () => {
     navigate('/tracking');
@@ -16,7 +16,9 @@ export default function PaymentMethod() {
 
   const handlePromoSubmit = () => {
     // Handle promo code submission
-    console.log('Promo code:', promoCode, 'Type:', selectedPromoType);
+    console.log('Promo code:', promoCode);
+    setAppliedPromoCode(promoCode);
+    setPromoCode('');
     setShowPromoPopup(false);
   };
 
@@ -151,7 +153,9 @@ export default function PaymentMethod() {
               className="w-full flex items-center justify-center gap-2 bg-gray-50 border border-gray-200 rounded-lg p-3 text-gray-600 hover:bg-gray-100 transition-colors"
             >
               <Plus size={16} className="text-gray-600" />
-              <span className="font-almarai text-gray-700">إضافة الرمز الترويجي</span>
+              <span className="font-almarai text-gray-700">
+                {appliedPromoCode ? appliedPromoCode : 'إضافة الرمز الترويجي'}
+              </span>
             </button>
           </div>
 
@@ -208,20 +212,6 @@ export default function PaymentMethod() {
               
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-almarai font-medium text-gray-700 mb-2">نوع الرمز</label>
-                  <select
-                    value={selectedPromoType}
-                    onChange={(e) => setSelectedPromoType(e.target.value)}
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
-                  >
-                    <option value="">اختر نوع الرمز</option>
-                    <option value="discount">رمز خصم</option>
-                    <option value="gift">رمز هدية</option>
-                    <option value="cashback">رمز استرداد نقدي</option>
-                  </select>
-                </div>
-                
-                <div>
                   <label className="block text-sm font-almarai font-medium text-gray-700 mb-2">الرمز الترويجي</label>
                   <input
                     type="text"
@@ -235,7 +225,7 @@ export default function PaymentMethod() {
                 <div className="flex gap-3">
                   <button
                     onClick={handlePromoSubmit}
-                    disabled={!promoCode || !selectedPromoType}
+                    disabled={!promoCode}
                     className="flex-1 bg-primary-600 text-white font-almarai font-medium py-3 px-4 rounded-lg hover:bg-primary-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
                   >
                     تطبيق
