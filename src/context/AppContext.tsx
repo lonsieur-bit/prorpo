@@ -14,6 +14,11 @@ interface AppContextType {
     time: string;
     carType: string;
     price: number;
+    extraServices?: string[];
+    basePrice?: number;
+    totalPrice?: number;
+    promoCode?: string;
+    discount?: number;
   };
   updateUser: (user: any) => void;
   updateBooking: (booking: any) => void;
@@ -34,7 +39,12 @@ export function AppProvider({ children }: { children: ReactNode }) {
     date: '20 مارس',
     time: '10:00',
     carType: 'غسيل سيارات 2',
-    price: 399
+    price: 399,
+    extraServices: [],
+    basePrice: 74.44,
+    totalPrice: 74.44,
+    promoCode: '',
+    discount: 0
   });
 
   const updateUser = (userData: any) => {

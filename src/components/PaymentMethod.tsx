@@ -1,23 +1,66 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, CreditCard, Plus, Calendar, MapPin, Car, Clock, Star, X } from 'lucide-react';
+import { useApp } from '../context/AppContext';
 
 export default function PaymentMethod() {
   const navigate = useNavigate();
+  const { booking, updateBooking } = useApp();
   const [selectedPayment, setSelectedPayment] = useState('card1');
   const [selectedNote, setSelectedNote] = useState('complete');
   const [showPromoPopup, setShowPromoPopup] = useState(false);
   const [promoCode, setPromoCode] = useState('');
-  const [appliedPromoCode, setAppliedPromoCode] = useState('');
+  const [appliedPromo, setAppliedPromo] = useState<{code: string, discount: number} | null>(null);
+
+  const promoCodes = {
+    'SAVE10': { discount: 10, type: 'percentage' },
+    'SAVE20': { discount: 20, type: 'fixed' },
+    'WELCOME': { discount: 15, type: 'percentage' },
+    'FIRST': { discount: 25, type: 'fixed' }
+  };
+
+  const calculateDiscount = (total: number, promoData: {discount: number, type: string}) => {
+    if (promoData.type === 'percentage') {
+      return (total * promoData.discount) / 100;
+    }
+    return promoData.discount;
+  };
+
+  const getTotal = () => {
+    const baseTotal = booking.totalPrice || 74.44;
+    if (appliedPromo) {
+      const discount = calculateDiscount(baseTotal, promoCodes[appliedPromo.code as keyof typeof promoCodes]);
+      return Math.max(0, baseTotal - discount);
+    }
+    return baseTotal;
+  };
+
+  const getDiscountAmount = () => {
+    if (appliedPromo) {
+      const baseTotal = booking.totalPrice || 74.44;
+      return calculateDiscount(baseTotal, promoCodes[appliedPromo.code as keyof typeof promoCodes]);
+    }
+    return 0;
+  };
 
   const handleSubmit = () => {
+    updateBooking({
+      promoCode: appliedPromo?.code || '',
+      discount: getDiscountAmount(),
+      finalPrice: getTotal()
+    });
     navigate('/tracking');
   };
 
   const handlePromoSubmit = () => {
-    // Handle promo code submission
-    console.log('Promo code:', promoCode);
-    setAppliedPromoCode(promoCode);
+    const upperPromoCode = promoCode.toUpperCase();
+    if (promoCodes[upperPromoCode as keyof typeof promoCodes]) {
+      const promoData = promoCodes[upperPromoCode as keyof typeof promoCodes];
+      setAppliedPromo({ code: upperPromoCode, discount: promoData.discount });
+      alert(`تم تطبيق الرمز الترويجي! خصم ${promoData.type === 'percentage' ? promoData.discount + '%' : promoData.discount + ' ريال'}`);
+    } else {
+      alert('رمز ترويجي غير صحيح');
+    }
     setPromoCode('');
     setShowPromoPopup(false);
   };
@@ -154,10 +197,27 @@ export default function PaymentMethod() {
               onClick={() => setShowPromoPopup(true)}
               className="w-full flex items-center justify-center gap-2 bg-gray-50 border border-gray-200 rounded-lg p-3 text-gray-600 hover:bg-gray-100 transition-colors"
             >
-              <Plus size={16} className="text-gray-600" />
-              <span className="font-almarai text-gray-700">
-                {appliedPromoCode ? appliedPromoCode : 'إضافة الرمز الترويجي'}
-              </span>
+              {appliedPromo ? (
+                <>
+                  <span className="font-almarai text-green-700">
+                    {appliedPromo.code} - خصم {getDiscountAmount().toFixed(2)} ريال
+                  </span>
+                  <button 
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setAppliedPromo(null);
+                    }}
+                    className="text-red-500 hover:text-red-700"
+                  >
+                    <X size={16} />
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Plus size={16} className="text-gray-600" />
+                  <span className="font-almarai text-gray-700">إضافة الرمز الترويجي</span>
+                </>
+              )}
             </button>
           </div>
 
@@ -169,20 +229,33 @@ export default function PaymentMethod() {
               <div className="flex justify-between items-center">
                 <span className="text-sm font-almarai text-gray-600">غسيل</span>
                 <span className="font-almarai text-gray-800">1</span>
-                <span className="font-almarai text-gray-800">ر.س 233</span>
+                <span className="font-almarai text-gray-800">ر.س {(booking.basePrice || 74.44).toFixed(2)}</span>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-sm font-almarai text-gray-600">خدمات إضافية</span>
-                <span className="font-almarai text-gray-800">2</span>
-                <span className="font-almarai text-gray-800">ر.س 28</span>
-              </div>
+              {booking.extraServices && booking.extraServices.length > 0 && (
+                <div className="flex justify-between items-center">
+                  <span className="text-sm font-almarai text-gray-600">خدمات إضافية</span>
+                  <span className="font-almarai text-gray-800">{booking.extraServices.length}</span>
+                  <span className="font-almarai text-gray-800">ر.س {((booking.totalPrice || 74.44) - (booking.basePrice || 74.44)).toFixed(2)}</span>
+                </div>
+              )}
               <div className="flex justify-between items-center">
                 <span className="text-sm font-almarai text-gray-600">المبلغ قبل الضريبة</span>
-                <span className="font-almarai text-gray-800">ر.س 123</span>
+                <span className="font-almarai text-gray-800">ر.س {(booking.totalPrice || 74.44).toFixed(2)}</span>
               </div>
+              {appliedPromo && (
+                <div className="flex justify-between items-center text-green-600">
+                  <span className="text-sm font-almarai">خصم ({appliedPromo.code})</span>
+                  <span className="font-almarai">- ر.س {getDiscountAmount().toFixed(2)}</span>
+                </div>
+              )}
               <div className="flex justify-between items-center">
                 <span className="text-sm font-almarai text-gray-600">ضريبة القيمة المضافة</span>
-                <span className="font-almarai text-gray-800">ر.س 3</span>
+                <span className="font-almarai text-gray-800">ر.س {(getTotal() * 0.15).toFixed(2)}</span>
+              </div>
+              <hr className="border-gray-300" />
+              <div className="flex justify-between items-center text-lg font-bold">
+                <span className="font-almarai text-gray-800">الإجمالي النهائي</span>
+                <span className="font-almarai text-primary-600">ر.س {(getTotal() + (getTotal() * 0.15)).toFixed(2)}</span>
               </div>
             </div>
           </div>
@@ -222,6 +295,9 @@ export default function PaymentMethod() {
                     className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
                     placeholder="أدخل الرمز الترويجي"
                   />
+                  <div className="mt-2 text-xs text-gray-500">
+                    <p>أكواد تجريبية: SAVE10, SAVE20, WELCOME, FIRST</p>
+                  </div>
                 </div>
                 
                 <div className="flex gap-3">

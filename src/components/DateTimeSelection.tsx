@@ -1,15 +1,41 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useApp } from '../context/AppContext';
 
 export default function DateTimeSelection() {
   const navigate = useNavigate();
+  const { updateBooking } = useApp();
   const [selectedDate, setSelectedDate] = useState(18);
   const [selectedTime, setSelectedTime] = useState('10:00');
+  const [selectedServices, setSelectedServices] = useState<string[]>([]);
 
   const morningTimes = ['09:00', '10:00', '11:00', '12:00'];
   const eveningTimes = ['01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00'];
 
+  const extraServices = [
+    { id: 'deep-clean', name: 'تنظيف شامل', price: 25 },
+    { id: 'wax', name: 'شمع', price: 15 },
+    { id: 'interior', name: 'تنظيف داخلي', price: 30 }
+  ];
+
+  const basePrice = 74.44;
+
+  const calculateTotal = () => {
+    const servicesTotal = selectedServices.reduce((total, serviceId) => {
+      const service = extraServices.find(s => s.id === serviceId);
+      return total + (service ? service.price : 0);
+    }, 0);
+    return basePrice + servicesTotal;
+  };
+
+  const toggleService = (serviceId: string) => {
+    setSelectedServices(prev => 
+      prev.includes(serviceId) 
+        ? prev.filter(id => id !== serviceId)
+        : [...prev, serviceId]
+    );
+  };
   const calendar = [
     [null, null, null, 1, 2, 3, 4],
     [5, 6, 7, 8, 9, 10, 11],
@@ -21,6 +47,14 @@ export default function DateTimeSelection() {
   const weekDays = ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
 
   const handleSubmit = () => {
+    const total = calculateTotal();
+    updateBooking({
+      date: `${selectedDate} مارس`,
+      time: selectedTime,
+      extraServices: selectedServices,
+      basePrice: basePrice,
+      totalPrice: total
+    });
     navigate('/address');
   };
 
@@ -121,41 +155,37 @@ export default function DateTimeSelection() {
           <div className="mb-6">
             <h2 className="text-lg font-almarai font-bold text-gray-800 mb-4">الخدمات الإضافية</h2>
             <div className="grid grid-cols-3 gap-2">
-              {/* Service 1 - Cleaning (Bucket) */}
-              <div className="bg-white border border-gray-200 rounded-xl p-3 text-center">
-                <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <div className="w-6 h-6 bg-primary-600 rounded-sm"></div>
-                </div>
-                <h3 className="font-almarai font-medium text-gray-800 mb-1 text-xs">تنظيف شامل</h3>
-                <p className="text-xs font-arabic-city text-gray-500 mb-2">25 ر.س</p>
-                <button className="w-full bg-primary-600 text-white py-1 px-2 rounded-lg text-xs hover:bg-primary-700 transition-colors">
-                  إضافة
-                </button>
-              </div>
-
-              {/* Service 2 - Wax (Bottle) */}
-              <div className="bg-white border border-gray-200 rounded-xl p-3 text-center">
-                <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <div className="w-4 h-6 bg-orange-500 rounded-sm"></div>
-                </div>
-                <h3 className="font-almarai font-medium text-gray-800 mb-1 text-xs">شمع</h3>
-                <p className="text-xs font-arabic-city text-gray-500 mb-2">15 ر.س</p>
-                <button className="w-full bg-orange-500 text-white py-1 px-2 rounded-lg text-xs hover:bg-orange-600 transition-colors">
-                  إضافة
-                </button>
-              </div>
-
-              {/* Service 3 - Interior Cleaning */}
-              <div className="bg-white border border-gray-200 rounded-xl p-3 text-center">
-                <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <div className="w-6 h-4 bg-gray-600 rounded-sm"></div>
-                </div>
-                <h3 className="font-almarai font-medium text-gray-800 mb-1 text-xs">تنظيف داخلي</h3>
-                <p className="text-xs font-arabic-city text-gray-500 mb-2">30 ر.س</p>
-                <button className="w-full bg-gray-600 text-white py-1 px-2 rounded-lg text-xs hover:bg-gray-700 transition-colors">
-                  إضافة
-                </button>
-              </div>
+              {extraServices.map((service, index) => {
+                const isSelected = selectedServices.includes(service.id);
+                const colors = [
+                  { bg: 'bg-primary-100', button: 'bg-primary-600 hover:bg-primary-700', icon: 'bg-primary-600' },
+                  { bg: 'bg-orange-100', button: 'bg-orange-500 hover:bg-orange-600', icon: 'bg-orange-500' },
+                  { bg: 'bg-gray-100', button: 'bg-gray-600 hover:bg-gray-700', icon: 'bg-gray-600' }
+                ];
+                const color = colors[index];
+                
+                return (
+                  <div key={service.id} className={`bg-white border-2 rounded-xl p-3 text-center transition-all ${
+                    isSelected ? 'border-primary-500 bg-primary-50' : 'border-gray-200'
+                  }`}>
+                    <div className={`w-12 h-12 ${color.bg} rounded-full flex items-center justify-center mx-auto mb-3`}>
+                      <div className={`${index === 0 ? 'w-6 h-6' : index === 1 ? 'w-4 h-6' : 'w-6 h-4'} ${color.icon} rounded-sm`}></div>
+                    </div>
+                    <h3 className="font-almarai font-medium text-gray-800 mb-1 text-xs">{service.name}</h3>
+                    <p className="text-xs font-arabic-city text-gray-500 mb-2">{service.price} ر.س</p>
+                    <button 
+                      onClick={() => toggleService(service.id)}
+                      className={`w-full py-1 px-2 rounded-lg text-xs transition-colors ${
+                        isSelected 
+                          ? 'bg-red-500 hover:bg-red-600 text-white' 
+                          : `${color.button} text-white`
+                      }`}
+                    >
+                      {isSelected ? 'إزالة' : 'إضافة'}
+                    </button>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -173,7 +203,7 @@ export default function DateTimeSelection() {
               </div>
               <div>
                 <p className="text-sm font-arabic-city opacity-90">إجمالي المبلغ</p>
-                <p className="text-2xl font-almarai font-bold">74.44 ر.س</p>
+                <p className="text-2xl font-almarai font-bold">{calculateTotal().toFixed(2)} ر.س</p>
               </div>
             </div>
             <button 

@@ -1,19 +1,29 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, MapPin, Edit3, Navigation } from 'lucide-react';
+import { useApp } from '../context/AppContext';
 
 export default function AddressConfirmation() {
   const navigate = useNavigate();
-  const [selectedAddress, setSelectedAddress] = useState('الموقع الرئيسي');
+  const { user, updateUser } = useApp();
+  const [selectedAddress, setSelectedAddress] = useState<string>('');
   const [currentLocation, setCurrentLocation] = useState('الرياض، حي شبرا 4231');
   const [isLoadingLocation, setIsLoadingLocation] = useState(false);
 
-  const addresses = [
-    { id: 1, name: 'الموقع الرئيسي', address: 'الرياض، حي شبرا 4231', distance: '1 كيلومتر' },
-    { id: 2, name: 'خدمات متنوعة 2', address: 'الرياض، حي شبرا 4231', distance: '2 خدمة' },
-    { id: 3, name: 'خدمات متنوعة', address: 'الرياض، حي شبرا 4231', distance: '1 خدمة' },
-    { id: 4, name: 'تجارة المتطلبات', address: 'الرياض، حي شبرا 4231', distance: '2 خدمة' }
+  const savedAddresses = [
+    { id: 'home', name: 'المنزل', address: 'الرياض، حي شبرا 4231', distance: '1 كيلومتر' },
+    { id: 'work', name: 'العمل', address: 'الرياض، حي الملز', distance: '2.5 كيلومتر' },
+    { id: 'other1', name: 'خدمات متنوعة', address: 'الرياض، حي النرجس', distance: '3 كيلومتر' },
+    { id: 'other2', name: 'تجارة المتطلبات', address: 'الرياض، حي الياسمين', distance: '1.8 كيلومتر' }
   ];
+
+  const selectAddress = (addressId: string) => {
+    const address = savedAddresses.find(addr => addr.id === addressId);
+    if (address) {
+      setSelectedAddress(addressId);
+      updateUser({ currentAddress: address.address });
+    }
+  };
 
   const getCurrentLocation = () => {
     setIsLoadingLocation(true);
@@ -51,6 +61,10 @@ export default function AddressConfirmation() {
   };
 
   const handleSubmit = () => {
+    if (!selectedAddress && !user.currentAddress) {
+      alert('يرجى اختيار عنوان للتوصيل');
+      return;
+    }
     navigate('/payment');
   };
 
@@ -106,14 +120,23 @@ export default function AddressConfirmation() {
               <h2 className="text-lg font-almarai font-bold text-gray-800 mb-4">تفاصيل العنوان</h2>
               
               <div className="space-y-3">
-                {addresses.map((address) => (
+                {savedAddresses.map((address) => (
                   <div 
                     key={address.id}
-                    className="flex items-center justify-between p-4 bg-gray-50 rounded-lg"
+                    onClick={() => selectAddress(address.id)}
+                    className={`flex items-center justify-between p-4 rounded-lg cursor-pointer transition-all ${
+                      selectedAddress === address.id 
+                        ? 'bg-primary-50 border-2 border-primary-500' 
+                        : 'bg-gray-50 border-2 border-transparent hover:bg-gray-100'
+                    }`}
                   >
                     <div className="flex items-center gap-3">
-                      <div className="bg-primary-100 p-2 rounded">
-                        <MapPin size={16} className="text-primary-600" />
+                      <div className={`p-2 rounded ${
+                        selectedAddress === address.id ? 'bg-primary-100' : 'bg-gray-200'
+                      }`}>
+                        <MapPin size={16} className={
+                          selectedAddress === address.id ? 'text-primary-600' : 'text-gray-600'
+                        } />
                       </div>
                       <div>
                         <p className="font-medium text-gray-800 text-sm">{address.name}</p>
@@ -122,6 +145,11 @@ export default function AddressConfirmation() {
                     </div>
                     <div className="text-xs text-gray-500 text-left">
                       <p>{address.distance}</p>
+                      {selectedAddress === address.id && (
+                        <div className="w-4 h-4 bg-primary-600 rounded-full mt-1 ml-auto flex items-center justify-center">
+                          <div className="w-2 h-2 bg-white rounded-full"></div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 ))}
